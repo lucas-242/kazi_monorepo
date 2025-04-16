@@ -2,12 +2,12 @@ import 'package:kazi_companies/core/constants/app_keys.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 abstract interface class Environment {
-  static EnvironmentValue get environmentValue => EnvironmentValue.fromString(
-        String.fromEnvironment(
-          AppKeys.environmentKey,
-          defaultValue: EnvironmentValue.dev.value,
-        ),
-      )!;
+  static EnvironmentValue environmentValue = EnvironmentValue.fromString(
+    const String.fromEnvironment(
+      AppKeys.environmentKey,
+      defaultValue: 'dev',
+    ),
+  )!;
 
   static Environment get instance => environmentValue == EnvironmentValue.dev
       ? DevEnvironment()

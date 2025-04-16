@@ -1,0 +1,38 @@
+{
+    "version": "1.0.0",
+    "configurations": [
+      {
+        "name": "Dev - Kazi Companies",
+        "type": "dart",
+        "request": "launch",
+        "program": "packages/kazi_companies/lib/main.dart",
+        "args": [
+            "--dart-define",
+            "APP_ENV=dev"
+        ]
+      },
+      {
+        "name": "Dev Web - Kazi Companies",
+        "type": "dart",
+        "request": "launch",
+        "program": "packages/kazi_companies/lib/main.dart",
+        "args": [
+            "--dart-define",
+            "APP_ENV=dev",
+        ]
+      },
+      
+      {
+        "name": "Prod - Kazi Companies",
+        "type": "dart",
+        "request": "launch",
+        "program": "packages/kazi_companies/lib/main.dart",
+        "args": [
+            "--release",
+            " ",
+            "--dart-define",
+            "APP_ENV=prod"
+        ]
+      }
+    ]
+  }
