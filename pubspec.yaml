@@ -1,0 +1,10 @@
+name: kazi
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dev_dependencies:
+  intl: ^0.19.0
+  melos: ^6.3.2
+  yaml: ^3.1.2
+  
