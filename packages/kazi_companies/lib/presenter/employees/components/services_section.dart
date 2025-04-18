@@ -51,6 +51,7 @@ class _ServicesSectionState extends State<ServicesSection> {
           userId: widget.user?.id ?? 0,
           defaultValue: 0,
           discountPercent: 0,
+          color: 'FF0000FF',
         ),
       ],
     );

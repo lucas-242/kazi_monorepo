@@ -28,6 +28,57 @@ class _ServicesPageState extends State<ServicesPage> {
               ),
             ],
           ),
+          Expanded(
+            child: KaziCalendar(
+              services: [
+                Service.toCreate(
+                  description: 'Unha de Gel',
+                  value: 100,
+                  scheduledToStartAt: DateTime(2025, 4, 23, 13),
+                  scheduledToEndAt: DateTime(2025, 4, 23, 16, 30),
+                  serviceType: const ServiceType(
+                    id: 1,
+                    name: 'Unha de Gel',
+                    userId: 1,
+                    defaultValue: 100,
+                    discountPercent: 10,
+                    color: 'FF6AC3B1',
+                  ),
+                  employeeId: 1,
+                ),
+                Service.toCreate(
+                  description: 'Lash Lift',
+                  value: 100,
+                  scheduledToStartAt: DateTime(2025, 4, 23, 09, 30),
+                  scheduledToEndAt: DateTime(2025, 4, 23, 11, 30),
+                  serviceType: const ServiceType(
+                    id: 1,
+                    name: 'Lash Lift',
+                    userId: 1,
+                    defaultValue: 100,
+                    discountPercent: 10,
+                    color: 'FF5786FF',
+                  ),
+                  employeeId: 1,
+                ),
+                Service.toCreate(
+                  description: 'Design de Sobrancelhas',
+                  value: 100,
+                  scheduledToStartAt: DateTime(2025, 4, 22, 10, 30),
+                  scheduledToEndAt: DateTime(2025, 4, 22, 11),
+                  serviceType: const ServiceType(
+                    id: 1,
+                    name: 'Design de Sobrancelhas',
+                    userId: 1,
+                    defaultValue: 100,
+                    discountPercent: 10,
+                    color: 'FFFE8B58',
+                  ),
+                  employeeId: 1,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
