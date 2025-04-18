@@ -15,7 +15,6 @@ export 'modules/users/domain/models/sign_up_params.dart';
 export 'modules/users/domain/models/update_user_params.dart';
 export 'modules/users/domain/repositories/users_repository.dart';
 export 'modules/users/users_module.dart';
-//Shared - Components
 export 'shared/components/bottom_sheet/kazi_bottom_sheet.dart';
 export 'shared/components/buttons/kazi_back_and_pill.dart';
 export 'shared/components/buttons/kazi_back_and_pills.dart';
@@ -23,6 +22,8 @@ export 'shared/components/buttons/kazi_circular_button.dart';
 export 'shared/components/buttons/kazi_elevated_button.dart';
 export 'shared/components/buttons/kazi_pill_button.dart';
 export 'shared/components/buttons/kazi_title_and_pill.dart';
+//Shared - Components
+export 'shared/components/calendar/kazi_calendar.dart';
 export 'shared/components/dialog/kazi_dialog.dart';
 export 'shared/components/form/kazi_date_picker.dart';
 export 'shared/components/form/kazi_date_range_picker.dart';
