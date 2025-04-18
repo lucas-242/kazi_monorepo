@@ -105,6 +105,7 @@ final _employeesMock = [
         userId: 1,
         defaultValue: 35,
         discountPercent: 40,
+        color: 'FFFE5858',
       ),
       ServiceType(
         id: 995,
@@ -112,6 +113,7 @@ final _employeesMock = [
         userId: 1,
         defaultValue: 35,
         discountPercent: 40,
+        color: 'FF6AC3B1',
       ),
     ],
   ),
@@ -145,6 +147,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 180,
         discountPercent: 40,
+        color: 'FF6AC3B1',
       ),
       ServiceType(
         id: 993,
@@ -152,6 +155,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 150,
         discountPercent: 45,
+        color: 'FF6AC3B1',
       ),
       ServiceType(
         id: 992,
@@ -159,6 +163,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 50,
         discountPercent: 35,
+        color: 'FF6AC3B1',
       ),
       ServiceType(
         id: 991,
@@ -166,6 +171,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 70,
         discountPercent: 35,
+        color: 'FF6AC3B1',
       ),
       ServiceType(
         id: 990,
@@ -173,6 +179,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 180,
         discountPercent: 40,
+        color: 'FF6AC3B1',
       ),
     ],
   ),
@@ -207,6 +214,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 100,
         discountPercent: 25,
+        color: 'FF6AC3B1',
       ),
       ServiceType(
         id: 998,
@@ -214,6 +222,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 80,
         discountPercent: 25,
+        color: 'FF6AC3B1',
       ),
       ServiceType(
         id: 997,
@@ -221,6 +230,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 280,
         discountPercent: 20,
+        color: 'FF6AC3B1',
       ),
     ],
   ),

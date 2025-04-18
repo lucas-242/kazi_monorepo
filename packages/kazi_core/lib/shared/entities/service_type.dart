@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/widgets.dart';
 
 class ServiceType extends Equatable {
   const ServiceType({
@@ -7,19 +8,29 @@ class ServiceType extends Equatable {
     required this.userId,
     required this.defaultValue,
     required this.discountPercent,
+    required this.color,
   });
 
   final int id;
   final String name;
   final double defaultValue;
   final double discountPercent;
+  final String color;
   final int userId;
+
+  Color get colorAs => Color.fromARGB(
+        int.parse(color.substring(0, 2), radix: 16),
+        int.parse(color.substring(2, 4), radix: 16),
+        int.parse(color.substring(4, 6), radix: 16),
+        int.parse(color.substring(6, 8), radix: 16),
+      );
 
   ServiceType copyWith({
     int? id,
     String? name,
     double? defaultValue,
     double? discountPercent,
+    String? color,
     int? userId,
   }) {
     return ServiceType(
@@ -27,6 +38,7 @@ class ServiceType extends Equatable {
       name: name ?? this.name,
       defaultValue: defaultValue ?? this.defaultValue,
       discountPercent: discountPercent ?? this.discountPercent,
+      color: color ?? this.color,
       userId: userId ?? this.userId,
     );
   }
@@ -37,6 +49,7 @@ class ServiceType extends Equatable {
         name,
         defaultValue,
         discountPercent,
+        color,
         userId,
       ];
 }
