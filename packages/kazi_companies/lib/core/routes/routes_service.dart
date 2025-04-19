@@ -84,11 +84,11 @@ class RoutesService {
       );
 
   static void navigateBack(BuildContext context) {
-    if (_lastPage == null) {
-      return;
-    }
+    final newPage = _lastPage;
 
-    final newPage = _lastPage!;
+    if (newPage == null) {
+      return _router.pop();
+    }
 
     _changeCubitAppPage(context, newPage);
 
