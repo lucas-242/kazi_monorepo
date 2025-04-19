@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kazi_companies/presenter/services/components/calendar_event_detail.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 class ServicesPage extends StatefulWidget {
@@ -30,57 +31,97 @@ class _ServicesPageState extends State<ServicesPage> {
           ),
           Expanded(
             child: KaziCalendar(
-              services: [
-                Service.toCreate(
-                  description: 'Unha de Gel',
-                  value: 100,
-                  scheduledToStartAt: DateTime(2025, 4, 23, 13),
-                  scheduledToEndAt: DateTime(2025, 4, 23, 16, 30),
-                  serviceType: const ServiceType(
-                    id: 1,
-                    name: 'Unha de Gel',
-                    userId: 1,
-                    defaultValue: 100,
-                    discountPercent: 10,
-                    color: 'FF6AC3B1',
-                  ),
-                  employeeId: 1,
-                ),
-                Service.toCreate(
-                  description: 'Lash Lift',
-                  value: 100,
-                  scheduledToStartAt: DateTime(2025, 4, 23, 09, 30),
-                  scheduledToEndAt: DateTime(2025, 4, 23, 11, 30),
-                  serviceType: const ServiceType(
-                    id: 1,
-                    name: 'Lash Lift',
-                    userId: 1,
-                    defaultValue: 100,
-                    discountPercent: 10,
-                    color: 'FF5786FF',
-                  ),
-                  employeeId: 1,
-                ),
-                Service.toCreate(
-                  description: 'Design de Sobrancelhas',
-                  value: 100,
-                  scheduledToStartAt: DateTime(2025, 4, 22, 10, 30),
-                  scheduledToEndAt: DateTime(2025, 4, 22, 11),
-                  serviceType: const ServiceType(
-                    id: 1,
-                    name: 'Design de Sobrancelhas',
-                    userId: 1,
-                    defaultValue: 100,
-                    discountPercent: 10,
-                    color: 'FFFE8B58',
-                  ),
-                  employeeId: 1,
-                ),
-              ],
+              services: _getServices(),
+              onTap: _onTapCalendar,
             ),
           ),
         ],
       ),
     );
   }
+
+  void _onTapCalendar(KaziCalendarTapDetails details) {
+    if (details.targetElement == KaziCalendarElement.calendarCell) {
+      final date = details.date;
+      if (date != null) {
+        // Handle calendar cell tap
+        print('Tapped on date: $date');
+      }
+    } else if (details.targetElement == KaziCalendarElement.appointment) {
+      final appointment = details.appointments?.first;
+      if (appointment is Service) {
+        final service = appointment;
+        showDialog(
+          context: context,
+          barrierColor: Colors.transparent,
+          builder: (_) {
+            return CalendarEventDetail(service: service);
+          },
+        );
+      }
+    }
+  }
+
+  List<Service> _getServices() => [
+        Service.toCreate(
+          description: 'Unha de Gel',
+          value: 100,
+          scheduledToStartAt: DateTime(2025, 4, 23, 13),
+          scheduledToEndAt: DateTime(2025, 4, 23, 16, 30),
+          serviceType: const ServiceType(
+            id: 1,
+            name: 'Unha de Gel',
+            userId: 1,
+            defaultValue: 100,
+            discountPercent: 10,
+            color: 'FF6AC3B1',
+          ),
+          employeeId: 1,
+          customer: _getUser('Ana'),
+        ),
+        Service.toCreate(
+          description: 'Lash Lift',
+          value: 100,
+          scheduledToStartAt: DateTime(2025, 4, 23, 09, 30),
+          scheduledToEndAt: DateTime(2025, 4, 23, 11, 30),
+          serviceType: const ServiceType(
+            id: 1,
+            name: 'Lash Lift',
+            userId: 1,
+            defaultValue: 100,
+            discountPercent: 10,
+            color: 'FF5786FF',
+          ),
+          employeeId: 1,
+          customer: _getUser('Márcia'),
+        ),
+        Service.toCreate(
+          description: 'Design de Sobrancelhas',
+          value: 100,
+          scheduledToStartAt: DateTime(2025, 4, 22, 10, 30),
+          scheduledToEndAt: DateTime(2025, 4, 22, 11),
+          serviceType: const ServiceType(
+            id: 1,
+            name: 'Design de Sobrancelhas',
+            userId: 1,
+            defaultValue: 100,
+            discountPercent: 10,
+            color: 'FFFE8B58',
+          ),
+          employeeId: 1,
+          customer: _getUser('Jupira'),
+        ),
+      ];
+
+  User _getUser(String name) => User(
+        id: 1,
+        name: name,
+        email: '',
+        userType: UserType.client,
+        identifier: '',
+        birthDate: DateTime.now(),
+        authToken: '',
+        refreshToken: '',
+        authExpires: DateTime.now(),
+      );
 }
