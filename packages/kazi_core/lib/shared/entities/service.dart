@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:kazi_core/shared/entities/service_type.dart';
+import 'package:kazi_core/kazi_core.dart';
 
 class Service extends Equatable {
   const Service._({
@@ -14,8 +14,10 @@ class Service extends Equatable {
     required this.startedAt,
     required this.endedAt,
     required this.employeeId,
+    required this.employee,
     required this.scheduledBy,
     required this.customerId,
+    required this.customer,
   });
 
   Service.toCreate({
@@ -29,7 +31,9 @@ class Service extends Equatable {
     this.startedAt,
     this.endedAt,
     required this.employeeId,
+    this.employee,
     this.customerId,
+    this.customer,
   })  : id = 0,
         scheduledBy = employeeId,
         scheduledToStartAt = scheduledToStartAt ?? _defaultDate,
@@ -49,8 +53,10 @@ class Service extends Equatable {
   final DateTime? startedAt;
   final DateTime? endedAt;
   final int employeeId;
+  final User? employee;
   final int scheduledBy;
   final int? customerId;
+  final User? customer;
 
   double get discountValue => value * discountPercent / 100;
   double get finalValue => value - discountValue;
@@ -67,7 +73,9 @@ class Service extends Equatable {
     DateTime? startedAt,
     DateTime? endedAt,
     int? employeeId,
+    User? employee,
     int? customerId,
+    User? customer,
     int? scheduledBy,
   }) {
     return Service._(
@@ -82,7 +90,9 @@ class Service extends Equatable {
       startedAt: startedAt ?? this.startedAt,
       endedAt: endedAt ?? this.endedAt,
       employeeId: employeeId ?? this.employeeId,
+      employee: employee ?? this.employee,
       customerId: customerId ?? this.customerId,
+      customer: customer ?? this.customer,
       scheduledBy: scheduledBy ?? this.scheduledBy,
     );
   }
@@ -100,7 +110,9 @@ class Service extends Equatable {
         startedAt,
         endedAt,
         employeeId,
+        employee,
         customerId,
+        customer,
         scheduledBy,
       ];
 
