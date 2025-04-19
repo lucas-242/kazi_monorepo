@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kazi_core/kazi_core.dart';
-import 'package:kazi_core/shared/components/calendar/models/calendar_models.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class KaziCalendar extends StatefulWidget {
@@ -13,7 +12,7 @@ class KaziCalendar extends StatefulWidget {
 
   final List<Service> services;
   final DateTime? minDate;
-  final Function(KaziCalendarTapDetails)? onTap;
+  final void Function(KaziCalendarTapDetails)? onTap;
 
   @override
   State<KaziCalendar> createState() => _KaziCalendarState();
@@ -29,18 +28,12 @@ class _KaziCalendarState extends State<KaziCalendar> {
         CalendarView.week,
         CalendarView.month,
         CalendarView.schedule,
-        CalendarView.timelineDay,
-        CalendarView.timelineWeek,
-        CalendarView.timelineMonth,
-        CalendarView.workWeek,
       ],
       headerStyle: CalendarHeaderStyle(
         textStyle: KaziTextStyles.titleSm,
         backgroundColor: Colors.transparent,
       ),
-      viewHeaderStyle: ViewHeaderStyle(
-        dayTextStyle: KaziTextStyles.titleSm,
-      ),
+      viewHeaderStyle: ViewHeaderStyle(dayTextStyle: KaziTextStyles.titleSm),
       dataSource: ServiceCalendarDataSource(widget.services),
       showNavigationArrow: true,
       allowViewNavigation: true,
@@ -48,7 +41,7 @@ class _KaziCalendarState extends State<KaziCalendar> {
         appointmentDisplayMode: MonthAppointmentDisplayMode.appointment,
       ),
       minDate: widget.minDate,
-      onTap: widget.onTap,
+      onTap: (details) => widget.onTap?.call(details),
       showDatePickerButton: true,
       showTodayButton: true,
     );

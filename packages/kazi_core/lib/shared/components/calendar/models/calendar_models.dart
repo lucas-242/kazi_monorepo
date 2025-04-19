@@ -4,6 +4,8 @@ import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 typedef KaziCalendarTapDetails = CalendarTapDetails;
 
+typedef KaziCalendarElement = CalendarElement;
+
 class ServiceCalendarDataSource extends CalendarDataSource {
   ServiceCalendarDataSource(List<Service> source) {
     appointments = source;
