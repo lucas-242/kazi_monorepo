@@ -32,5 +32,8 @@ extension DateTimeExtensions on DateTime {
       .inDays;
 
   ///Formats date to yyyy-MM-dd formmat using the [locale]
-  String formmat([Locale? locale]) => DateFormat.yMd(locale).format(this);
+  String format([Locale? locale]) => DateFormat.yMd(locale).format(this);
+
+  ///Formats date to HH:mm formmat using the [locale]
+  String formatHour([Locale? locale]) => DateFormat.Hm(locale).format(this);
 }

@@ -99,7 +99,7 @@ class PersonalSection extends StatelessWidget {
                               style: KaziTextStyles.titleSm,
                             ),
                             TextSpan(
-                              text: user!.birthDate.formmat(),
+                              text: user!.birthDate.format(),
                             ),
                           ],
                         ),
@@ -139,7 +139,7 @@ class PersonalSection extends StatelessWidget {
                               text: 'Admissão: ',
                               style: KaziTextStyles.titleSm,
                             ),
-                            TextSpan(text: user!.admissionDate!.formmat()),
+                            TextSpan(text: user!.admissionDate!.format()),
                           ],
                         ),
                       ),
