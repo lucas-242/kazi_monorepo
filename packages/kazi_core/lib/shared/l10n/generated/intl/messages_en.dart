@@ -61,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "changePassword": MessageLookupByLibrary.simpleMessage("Change Password"),
     "clients": MessageLookupByLibrary.simpleMessage("Clients"),
     "clipperCut": MessageLookupByLibrary.simpleMessage("Clipper cut"),
+    "close": MessageLookupByLibrary.simpleMessage("Close"),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmAction": MessageLookupByLibrary.simpleMessage("Confirm Action"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),

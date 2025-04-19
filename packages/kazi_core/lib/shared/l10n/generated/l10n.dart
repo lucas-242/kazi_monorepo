@@ -145,6 +145,11 @@ class KaziLocalizations {
     return Intl.message('Clipper cut', name: 'clipperCut', desc: '', args: []);
   }
 
+  /// `Close`
+  String get close {
+    return Intl.message('Close', name: 'close', desc: '', args: []);
+  }
+
   /// `Create`
   String get create {
     return Intl.message('Create', name: 'create', desc: '', args: []);
