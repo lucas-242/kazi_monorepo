@@ -8,6 +8,7 @@ class ServiceType extends Equatable {
     required this.userId,
     required this.defaultValue,
     required this.discountPercent,
+    required this.defaultDuration,
     required this.color,
   });
 
@@ -15,6 +16,7 @@ class ServiceType extends Equatable {
   final String name;
   final double defaultValue;
   final double discountPercent;
+  final Duration defaultDuration;
   final String color;
   final int userId;
 
@@ -30,6 +32,7 @@ class ServiceType extends Equatable {
     String? name,
     double? defaultValue,
     double? discountPercent,
+    Duration? defaultDuration,
     String? color,
     int? userId,
   }) {
@@ -38,6 +41,7 @@ class ServiceType extends Equatable {
       name: name ?? this.name,
       defaultValue: defaultValue ?? this.defaultValue,
       discountPercent: discountPercent ?? this.discountPercent,
+      defaultDuration: defaultDuration ?? this.defaultDuration,
       color: color ?? this.color,
       userId: userId ?? this.userId,
     );

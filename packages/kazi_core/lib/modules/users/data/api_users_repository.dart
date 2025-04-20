@@ -105,6 +105,7 @@ final _employeesMock = [
         userId: 1,
         defaultValue: 35,
         discountPercent: 40,
+        defaultDuration: Duration(minutes: 30),
         color: 'FFFE5858',
       ),
       ServiceType(
@@ -113,6 +114,7 @@ final _employeesMock = [
         userId: 1,
         defaultValue: 35,
         discountPercent: 40,
+        defaultDuration: Duration(minutes: 30),
         color: 'FF6AC3B1',
       ),
     ],
@@ -147,6 +149,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 180,
         discountPercent: 40,
+        defaultDuration: Duration(minutes: 30),
         color: 'FF6AC3B1',
       ),
       ServiceType(
@@ -155,6 +158,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 150,
         discountPercent: 45,
+        defaultDuration: Duration(minutes: 45),
         color: 'FF6AC3B1',
       ),
       ServiceType(
@@ -163,6 +167,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 50,
         discountPercent: 35,
+        defaultDuration: Duration(minutes: 30),
         color: 'FF6AC3B1',
       ),
       ServiceType(
@@ -171,6 +176,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 70,
         discountPercent: 35,
+        defaultDuration: Duration(minutes: 30),
         color: 'FF6AC3B1',
       ),
       ServiceType(
@@ -179,6 +185,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 180,
         discountPercent: 40,
+        defaultDuration: Duration(minutes: 30),
         color: 'FF6AC3B1',
       ),
     ],
@@ -214,6 +221,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 100,
         discountPercent: 25,
+        defaultDuration: Duration(minutes: 20),
         color: 'FF6AC3B1',
       ),
       ServiceType(
@@ -222,6 +230,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 80,
         discountPercent: 25,
+        defaultDuration: Duration(minutes: 15),
         color: 'FF6AC3B1',
       ),
       ServiceType(
@@ -230,6 +239,7 @@ final _employeesMock = [
         userId: 3,
         defaultValue: 280,
         discountPercent: 20,
+        defaultDuration: Duration(minutes: 45),
         color: 'FF6AC3B1',
       ),
     ],
