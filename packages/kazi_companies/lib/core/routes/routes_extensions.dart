@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
 import 'package:kazi_core/kazi_core.dart';
 
@@ -36,10 +35,18 @@ extension RoutesExtensions on BuildContext {
 
   void navigateBack() => RoutesService.navigateBack(this);
 
-  void navigateToAddServices([Service? service]) =>
-      RoutesService.navigateToAddServices(this, service);
+  void openDialog<T extends Object>({
+    Color? barrierColor,
+    required Widget child,
+  }) =>
+      RoutesService.openDialog<T>(
+        this,
+        barrierColor: barrierColor,
+        child: child,
+      );
 
-  void closeModal<T extends Object>([T? result]) => pop(result);
+  void closeDialog<T extends Object>([T? result]) =>
+      RoutesService.closeDialog(this, result);
 
   void openDrawer() => RoutesService.openDrawer(this);
 
@@ -65,10 +72,10 @@ extension RoutesExtensions on BuildContext {
         builder: (context) => KaziBottomSheet(
           title: KaziLocalizations.current.leaveApp,
           backText: KaziLocalizations.current.back,
-          onBack: () => context.closeModal(false),
+          onBack: () => context.closeDialog(false),
           exitText: KaziLocalizations.current.exit,
           onClose: () {
-            context.closeModal(true);
+            context.closeDialog(true);
             context.navigateBack();
           },
         ),

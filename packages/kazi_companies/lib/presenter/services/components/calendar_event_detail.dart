@@ -48,7 +48,7 @@ class CalendarEventDetail extends StatelessWidget {
       ),
       actions: [
         TextButton(
-          onPressed: context.navigateBack,
+          onPressed: context.closeDialog,
           style: TextButton.styleFrom(
             foregroundColor: KaziColors.grey,
           ),

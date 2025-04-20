@@ -84,11 +84,11 @@ class RoutesService {
       );
 
   static void navigateBack(BuildContext context) {
-    final newPage = _lastPage;
-
-    if (newPage == null) {
-      return _router.pop();
+    if (_lastPage == null) {
+      return;
     }
+
+    final newPage = _lastPage!;
 
     _changeCubitAppPage(context, newPage);
 
@@ -101,27 +101,19 @@ class RoutesService {
     _navigate(newPage);
   }
 
-  static void navigateToAddServices(BuildContext context, [Service? service]) {
-    var newPage = AppPages.addServices;
-    _isPushed = true;
+  static void openDialog<T extends Object>(
+    BuildContext context, {
+    Color? barrierColor,
+    required Widget child,
+  }) =>
+      showDialog(
+        context: context,
+        builder: (_) => child,
+      );
 
-    if (_currentPage == AppPages.addServices) {
-      _isPushed = false;
-      newPage = _getLastPageFromAddServicesPage();
-    }
-
-    _lastPage = _currentPage;
-    _currentPage = newPage;
-
-    final params = RouteParams(service: service);
-
-    _changeCubitAppPage(context, newPage);
-    _push(newPage, params);
-  }
-
-  /// Used to avoid navigate to a dynamic route.
-  ///
-  /// TODO: Change it in the future to load data everytime the user move to a dynamic route.
-  static AppPages _getLastPageFromAddServicesPage() =>
-      _lastPage == AppPages.services ? AppPages.services : AppPages.services;
+  static void closeDialog<T extends Object>(
+    BuildContext context, [
+    T? result,
+  ]) =>
+      _router.pop(result);
 }

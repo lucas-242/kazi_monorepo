@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kazi_companies/core/routes/routes.dart';
 import 'package:kazi_companies/presenter/services/components/calendar_event_detail.dart';
+import 'package:kazi_companies/presenter/services/pages/service_form_page.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 class ServicesPage extends StatefulWidget {
@@ -25,7 +27,7 @@ class _ServicesPageState extends State<ServicesPage> {
               ),
               KaziCircularButton(
                 child: const Icon(Icons.add),
-                onTap: () {},
+                onTap: () => context.openDialog(child: const ServiceFormPage()),
               ),
             ],
           ),
@@ -51,12 +53,9 @@ class _ServicesPageState extends State<ServicesPage> {
       final appointment = details.appointments?.first;
       if (appointment is Service) {
         final service = appointment;
-        showDialog(
-          context: context,
+        context.openDialog(
           barrierColor: Colors.transparent,
-          builder: (_) {
-            return CalendarEventDetail(service: service);
-          },
+          child: CalendarEventDetail(service: service),
         );
       }
     }
