@@ -28,7 +28,11 @@ class _ServiceFormPageState extends State<ServiceFormPage> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Add Service'),
+      title: Text(
+        'Add Service',
+        style: KaziTextStyles.titleMd,
+      ),
+      backgroundColor: KaziColors.background,
       content: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -57,7 +61,11 @@ class _ServiceFormPageState extends State<ServiceFormPage> {
                 KaziSpacings.verticalMd,
                 KaziDatePicker(
                   initialDate: DateTime.now(),
-                  onChange: _cubit.onEndTimeChanged,
+                  onChange: (date) {
+                    _cubit.onStartTimeChanged(date);
+                    _startTimeController.text = date.toString();
+                    _endTimeController.text = date.toString();
+                  },
                   label: 'End Time',
                   firstDate: DateTime(2024),
                   lastDate: DateTime(2026),
@@ -89,6 +97,9 @@ class _ServiceFormPageState extends State<ServiceFormPage> {
       actions: [
         TextButton(
           onPressed: context.closeDialog,
+          style: TextButton.styleFrom(
+            foregroundColor: KaziColors.grey,
+          ),
           child: Text(KaziLocalizations.current.cancel),
         ),
         TextButton(

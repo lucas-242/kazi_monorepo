@@ -15,7 +15,7 @@ sealed class ServicesFormState {
   final List<DropdownItem> serviceTypes;
   final List<DropdownItem> customers;
   final List<DropdownItem> employees;
-  final String? selectedServiceType;
+  final ServiceType? selectedServiceType;
   final DateTime? selectedStartTime;
   final DateTime? selectedEndTime;
   final String? selectedCustomer;
