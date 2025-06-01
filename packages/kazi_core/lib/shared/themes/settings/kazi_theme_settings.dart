@@ -76,7 +76,7 @@ abstract class KaziThemeSettings {
         error: KaziColors.red,
       );
 
-  static CardTheme _cardTheme() => CardTheme(
+  static CardThemeData _cardTheme() => CardThemeData(
         elevation: 0,
         shape: defaultShape,
         margin: const EdgeInsets.only(bottom: KaziInsets.sm),
@@ -92,7 +92,7 @@ abstract class KaziThemeSettings {
         // foregroundColor: colors.onSurface,
       );
 
-  static TabBarTheme _tabBarTheme(ColorScheme colors) => TabBarTheme(
+  static TabBarThemeData _tabBarTheme(ColorScheme colors) => TabBarThemeData(
         labelColor: colors.secondary,
         unselectedLabelColor: colors.onSurfaceVariant,
         indicator: BoxDecoration(
