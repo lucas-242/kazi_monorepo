@@ -12,7 +12,7 @@ class ClientCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(KaziInsets.md),
+        padding: const EdgeInsets.all(KaziInsets.xLg),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -24,16 +24,16 @@ class ClientCard extends StatelessWidget {
                   children: [
                     Text(
                       client.user.name,
-                      style: KaziTextStyles.lg
+                      style: KaziTextStyles.titleMd
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     Text(
                       client.user.phones.isNotEmpty
                           ? client.user.phones.first
                           : '',
-                      style: KaziTextStyles.sm,
+                      style: KaziTextStyles.md,
                     ),
-                    Text(client.user.email, style: KaziTextStyles.sm),
+                    Text(client.user.email, style: KaziTextStyles.md),
                   ],
                 ),
                 if (client.isBirthday)
@@ -46,18 +46,20 @@ class ClientCard extends StatelessWidget {
             ),
             KaziSpacings.verticalSm,
             Container(
-              padding: const EdgeInsets.all(KaziInsets.xs),
+              padding: const EdgeInsets.all(KaziInsets.md),
               decoration: BoxDecoration(
-                color: KaziColors.lightestGrey,
+                color: KaziColors.background,
                 borderRadius: BorderRadius.circular(KaziInsets.xs),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Último Serviço', style: KaziTextStyles.sm),
+                      Text('Último Serviço', style: KaziTextStyles.md),
+                      KaziSpacings.verticalXs,
                       Text(
                         client.lastServiceName,
                         style: KaziTextStyles.md
@@ -65,7 +67,7 @@ class ClientCard extends StatelessWidget {
                       ),
                       Text(
                         client.lastServiceDateFormatted,
-                        style: KaziTextStyles.sm,
+                        style: KaziTextStyles.md,
                       ),
                     ],
                   ),
@@ -73,9 +75,8 @@ class ClientCard extends StatelessWidget {
                     text: client.isLastServiceLate
                         ? '+${client.daysSinceLastService} dias'
                         : 'Recente',
-                    icon: client.isLastServiceLate
-                        ? Icons.error
-                        : Icons.check_circle,
+                    icon:
+                        client.isLastServiceLate ? Icons.schedule : Icons.check,
                     color: client.isLastServiceLate
                         ? KaziColors.red
                         : KaziColors.green,
@@ -84,7 +85,8 @@ class ClientCard extends StatelessWidget {
               ),
             ),
             KaziSpacings.verticalSm,
-            Text('Serviços Mais Realizados', style: KaziTextStyles.titleMd),
+            Text('Serviços Mais Realizados', style: KaziTextStyles.md),
+            KaziSpacings.verticalSm,
             MostUsedServices(items: client.mostUsedServices),
             const Spacer(),
             Row(

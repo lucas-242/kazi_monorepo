@@ -10,19 +10,22 @@ class MostUsedServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 30,
+      height: 100,
       child: ListView.builder(
         itemCount: items.length,
         physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (context, index) => Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(items.keys.elementAt(index)),
-            BadgeLabel(
-              text: items.values.elementAt(index).toString(),
-              color: KaziColors.primary,
-            ),
-          ],
+        itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.only(bottom: KaziInsets.xxs),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(items.keys.elementAt(index)),
+              BadgeLabel(
+                text: '${items.values.elementAt(index)}x',
+                color: KaziColors.primary,
+              ),
+            ],
+          ),
         ),
       ),
     );

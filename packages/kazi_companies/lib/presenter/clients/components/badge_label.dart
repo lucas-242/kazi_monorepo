@@ -21,7 +21,7 @@ class BadgeLabel extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.2),
-        borderRadius: BorderRadius.circular(KaziInsets.xs),
+        borderRadius: BorderRadius.circular(KaziInsets.xxs),
       ),
       child: Row(
         children: [
@@ -35,7 +35,7 @@ class BadgeLabel extends StatelessWidget {
           ],
           Text(
             text,
-            style: KaziTextStyles.sm.copyWith(color: color),
+            style: KaziTextStyles.titleSm.copyWith(color: color, fontSize: 14),
           ),
         ],
       ),

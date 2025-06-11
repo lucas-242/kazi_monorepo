@@ -162,7 +162,7 @@ abstract class KaziThemeSettings {
 
   static DividerThemeData _dividerTheme(ColorScheme colors) =>
       const DividerThemeData(
-        color: KaziColors.lightestGrey,
+        color: KaziColors.background,
         thickness: 1,
         indent: 0,
         endIndent: 0,

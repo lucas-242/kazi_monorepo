@@ -13,7 +13,7 @@ abstract class KaziTextStyles {
   static final headlineSm = textTheme.headlineSmall!;
 
   /// 24px, [KaziColors.darkGrey], [FontWeight.w500]
-  static final titleLg = textTheme.titleMedium!;
+  static final titleLg = textTheme.titleLarge!;
 
   /// 20px, [KaziColors.darkGrey], [FontWeight.w500]
   static final titleMd = textTheme.titleMedium!;
