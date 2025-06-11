@@ -70,7 +70,7 @@ class _SplashPageState extends State<SplashPage> {
                   opacity: showText ? 1 : 0,
                   child: Text(
                     'Kazi',
-                    style: KaziTextStyles.loginTitle,
+                    style: KaziTextStyles.headlineLg.copyWith(fontSize: 36),
                     softWrap: false,
                   ),
                 ),

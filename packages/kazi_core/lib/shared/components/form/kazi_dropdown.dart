@@ -59,7 +59,7 @@ class KaziDropdown extends StatelessWidget {
         padding: EdgeInsets.symmetric(
           horizontal: KaziInsets.md,
         ),
-        color: KaziColors.black,
+        color: KaziColors.darkGrey,
         icon: Icon(Icons.keyboard_arrow_down_outlined),
       ),
     );

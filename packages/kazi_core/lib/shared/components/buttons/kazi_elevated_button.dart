@@ -2,17 +2,58 @@ import 'package:flutter/material.dart';
 import 'package:kazi_core/shared/themes/themes.dart';
 
 class KaziElevatedButton extends StatelessWidget {
-  const KaziElevatedButton({
+  const KaziElevatedButton._({
     super.key,
     required this.onTap,
-    required this.text,
+    this.label,
+    this.icon,
     this.backgroundColor,
     this.foregroundColor,
     this.width,
     this.height,
   });
+
+  const KaziElevatedButton.label({
+    Key? key,
+    required VoidCallback onTap,
+    required String label,
+    Color? backgroundColor,
+    Color? foregroundColor,
+    double? width,
+    double? height,
+  }) : this._(
+          key: key,
+          onTap: onTap,
+          label: label,
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
+          width: width,
+          height: height,
+        );
+
+  const KaziElevatedButton.icon({
+    Key? key,
+    required VoidCallback onTap,
+    String? label,
+    required Widget icon,
+    Color? backgroundColor,
+    Color? foregroundColor,
+    double? width,
+    double? height,
+  }) : this._(
+          key: key,
+          onTap: onTap,
+          label: label,
+          icon: icon,
+          backgroundColor: backgroundColor,
+          foregroundColor: foregroundColor,
+          width: width,
+          height: height,
+        );
+
   final VoidCallback onTap;
-  final String text;
+  final String? label;
+  final Widget? icon;
   final Color? backgroundColor;
   final Color? foregroundColor;
   final double? width;
@@ -20,24 +61,45 @@ class KaziElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final buttonStyle = ElevatedButton.styleFrom(
+      backgroundColor: backgroundColor ?? KaziColors.primary,
+      foregroundColor: foregroundColor ?? KaziColors.darkGrey,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(KaziInsets.xs),
+      ),
+    );
+
+    if (icon != null) {
+      if (label != null) {
+        return ElevatedButton.icon(
+          key: key,
+          onPressed: onTap,
+          icon: icon!,
+          label: Padding(
+            padding: const EdgeInsets.symmetric(vertical: KaziInsets.xs),
+            child: Text(label!, style: KaziTextStyles.titleLg),
+          ),
+          style: buttonStyle,
+        );
+      }
+
+      return IconButton(
+        key: key,
+        onPressed: onTap,
+        padding: const EdgeInsets.all(KaziInsets.sm),
+        icon: icon!,
+        style: buttonStyle,
+      );
+    }
+
     return ElevatedButton(
       key: key,
       onPressed: onTap,
-      style: ButtonStyle(
-        minimumSize: WidgetStateProperty.all<Size>(
-          Size(
-            width ?? context.width * 0.7,
-            height ?? context.height * 0.067,
-          ),
-        ),
-        backgroundColor: backgroundColor != null
-            ? WidgetStateProperty.all<Color>(backgroundColor!)
-            : null,
-        foregroundColor: foregroundColor != null
-            ? WidgetStateProperty.all<Color>(foregroundColor!)
-            : null,
+      style: buttonStyle,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: KaziInsets.xs),
+        child: Text(label!, style: KaziTextStyles.titleLg),
       ),
-      child: Text(text),
     );
   }
 }

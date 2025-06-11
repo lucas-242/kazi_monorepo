@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kazi_companies/presenter/clients/components/client_card.dart';
 import 'package:kazi_core/kazi_core.dart';
+
+import '../mock/mock_clients.dart';
+import '../models/client_info.dart';
 
 class ClientsPage extends StatefulWidget {
   const ClientsPage({super.key});
@@ -9,6 +13,8 @@ class ClientsPage extends StatefulWidget {
 }
 
 class _ClientsPageState extends State<ClientsPage> {
+  final List<ClientInfo> clients = mockClients;
+
   @override
   Widget build(BuildContext context) {
     return KaziSafeArea(
@@ -27,6 +33,22 @@ class _ClientsPageState extends State<ClientsPage> {
                 onTap: () {},
               ),
             ],
+          ),
+          KaziSpacings.verticalMd,
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: KaziInsets.md,
+                mainAxisSpacing: KaziInsets.md,
+                childAspectRatio: 1.2,
+              ),
+              itemCount: clients.length,
+              itemBuilder: (context, index) {
+                final client = clients[index];
+                return ClientCard(client: client);
+              },
+            ),
           ),
         ],
       ),

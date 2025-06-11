@@ -2,6 +2,9 @@ import 'package:flutter/widgets.dart';
 import 'package:kazi_core/shared/themes/themes.dart';
 
 abstract class KaziSpacings {
+  ///4.0px
+  static const verticalXxs = SizedBox(height: KaziInsets.xxs);
+
   ///8.0px
   static const verticalXs = SizedBox(height: KaziInsets.xs);
 
@@ -22,6 +25,9 @@ abstract class KaziSpacings {
 
   ///50.0px
   static const verticalXxxLg = SizedBox(height: KaziInsets.xxxLg);
+
+  ///4.0px
+  static const horizontalXxs = SizedBox(width: KaziInsets.xxs);
 
   ///8.0px
   static const horizontalXs = SizedBox(width: KaziInsets.xs);

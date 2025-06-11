@@ -15,6 +15,7 @@ abstract class KaziThemeSettings {
 
   static ShapeBorder get defaultShape => RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(KaziInsets.md),
+        side: const BorderSide(color: KaziColors.stroke),
       );
 
   static ThemeData light() {
@@ -72,14 +73,15 @@ abstract class KaziThemeSettings {
         seedColor: KaziColors.primary,
         primary: KaziColors.primary,
         surface: KaziColors.white,
-        onSurface: KaziColors.black,
+        onSurface: KaziColors.darkGrey,
         error: KaziColors.red,
       );
 
   static CardThemeData _cardTheme() => CardThemeData(
-        elevation: 0,
+        elevation: 1,
         shape: defaultShape,
         margin: const EdgeInsets.only(bottom: KaziInsets.sm),
+        color: KaziColors.white,
         clipBehavior: Clip.antiAlias,
       );
 
@@ -154,13 +156,13 @@ abstract class KaziThemeSettings {
   static OutlinedButtonThemeData _outlinedButtonTheme(ColorScheme colors) =>
       OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          side: const BorderSide(color: KaziColors.black),
+          side: const BorderSide(color: KaziColors.darkGrey),
         ),
       );
 
   static DividerThemeData _dividerTheme(ColorScheme colors) =>
       const DividerThemeData(
-        color: KaziColors.lightGrey,
+        color: KaziColors.lightestGrey,
         thickness: 1,
         indent: 0,
         endIndent: 0,

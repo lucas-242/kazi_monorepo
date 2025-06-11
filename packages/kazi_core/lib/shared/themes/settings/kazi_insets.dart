@@ -1,4 +1,7 @@
 abstract class KaziInsets {
+  ///4.0px
+  static const xxs = 4.0;
+
   ///8.0px
   static const xs = 8.0;
 
