@@ -30,6 +30,7 @@ export 'shared/components/form/kazi_date_picker.dart';
 export 'shared/components/form/kazi_date_range_picker.dart';
 export 'shared/components/form/kazi_dropdown.dart';
 export 'shared/components/form/kazi_text_form_field.dart';
+export 'shared/components/kazi_page_title.dart';
 export 'shared/components/loading/kazi_loading.dart';
 export 'shared/components/no_data/kazi_no_data.dart';
 export 'shared/components/safe_area/kazi_safe_area.dart';

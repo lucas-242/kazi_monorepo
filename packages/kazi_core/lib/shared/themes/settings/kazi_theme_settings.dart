@@ -72,8 +72,9 @@ abstract class KaziThemeSettings {
         brightness: brightness,
         seedColor: KaziColors.primary,
         primary: KaziColors.primary,
-        surface: KaziColors.white,
+        surface: KaziColors.background,
         onSurface: KaziColors.darkGrey,
+        outline: KaziColors.stroke,
         error: KaziColors.red,
       );
 
@@ -179,25 +180,30 @@ abstract class KaziThemeSettings {
   static InputDecorationTheme _inputDecorationTheme(ColorScheme colors) {
     const borderRadius = BorderRadius.all(Radius.circular(KaziInsets.xs));
     return InputDecorationTheme(
+      labelStyle: KaziTextStyles.labelLg,
+      hintStyle: KaziTextStyles.labelLg,
+      iconColor: KaziColors.grey,
+      prefixIconColor: KaziColors.grey,
+      suffixIconColor: KaziColors.grey,
       floatingLabelBehavior: FloatingLabelBehavior.never,
       filled: true,
       fillColor: colors.surface,
       contentPadding: const EdgeInsets.symmetric(horizontal: KaziInsets.md),
       enabledBorder: OutlineInputBorder(
         borderRadius: borderRadius,
-        borderSide: BorderSide(color: colors.onSurface),
+        borderSide: BorderSide(color: colors.outline),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: borderRadius,
-        borderSide: BorderSide(color: colors.onSurface),
+        borderSide: BorderSide(color: colors.outline),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: borderRadius,
-        borderSide: BorderSide(color: colors.onSurface),
+        borderSide: BorderSide(color: colors.outline),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: borderRadius,
-        borderSide: BorderSide(color: colors.onSurface),
+        borderSide: BorderSide(color: colors.outline),
       ),
     );
   }

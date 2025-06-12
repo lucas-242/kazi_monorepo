@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kazi_core/shared/themes/themes.dart';
 
 class KaziTextFormField extends StatelessWidget {
   const KaziTextFormField({
@@ -70,17 +69,12 @@ class KaziTextFormField extends StatelessWidget {
       onFieldSubmitted: onFieldSubmitted,
       maxLength: maxLength,
       maxLines: maxLines,
-      style: KaziTextStyles.md,
       inputFormatters: inputFormatters,
       decoration: InputDecoration(
         counterText: '',
         labelText: labelText,
-        labelStyle: KaziTextStyles.labelLg.copyWith(
-          color: context.colorsScheme.onSurface,
-        ),
         errorMaxLines: 3,
         hintText: hintText.isEmpty ? labelText : null,
-        hintStyle: KaziTextStyles.md,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
       ),

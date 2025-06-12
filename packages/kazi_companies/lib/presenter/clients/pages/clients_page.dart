@@ -21,20 +21,12 @@ class _ClientsPageState extends State<ClientsPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                KaziLocalizations.current.clients,
-                style: KaziTextStyles.headlineMd,
-              ),
-              KaziCircularButton(
-                child: const Icon(Icons.add),
-                onTap: () {},
-              ),
-            ],
+          KaziPageTitle(
+            title: 'Clientes',
+            searchLabel: 'Buscar Clientes...',
+            onFilter: () {},
           ),
-          KaziSpacings.verticalMd,
+          KaziSpacings.verticalXxLg,
           Expanded(
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
