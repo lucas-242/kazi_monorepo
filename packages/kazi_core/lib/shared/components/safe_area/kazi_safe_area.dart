@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kazi_core/shared/components/safe_area/widgets/padding_wrap.dart';
+import 'package:kazi_core/shared/components/safe_area/kazi_padding_wrap.dart';
 import 'package:kazi_core/shared/components/scroll/kazi_scroll_behavior.dart';
 
 class KaziSafeArea extends StatelessWidget {
@@ -22,13 +22,19 @@ class KaziSafeArea extends StatelessWidget {
         child: onRefresh != null
             ? RefreshIndicator(
                 onRefresh: onRefresh!,
-                child: PaddingWrap(
-                  padding: padding,
+                child: KaziPaddingWrap(
+                  paddingLeft: padding?.left,
+                  paddingRight: padding?.right,
+                  paddingTop: padding?.top,
+                  paddingBottom: padding?.bottom,
                   child: child,
                 ),
               )
-            : PaddingWrap(
-                padding: padding,
+            : KaziPaddingWrap(
+                paddingLeft: padding?.left,
+                paddingRight: padding?.right,
+                paddingTop: padding?.top,
+                paddingBottom: padding?.bottom,
                 child: child,
               ),
       ),

@@ -197,6 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "month": MessageLookupByLibrary.simpleMessage("Month"),
     "myBalance": MessageLookupByLibrary.simpleMessage("My balance"),
     "name": MessageLookupByLibrary.simpleMessage("Name"),
+    "newClient": MessageLookupByLibrary.simpleMessage("New Client"),
     "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "newService": MessageLookupByLibrary.simpleMessage("New service"),
     "newServiceType": MessageLookupByLibrary.simpleMessage("New Service Type"),

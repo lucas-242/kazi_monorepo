@@ -4,7 +4,7 @@ abstract class KaziColors {
   static const primary = Color(0xFFFFCC31);
   static const background = Color(0xFFF9FAFB);
   static const white = Color(0xFFFFFFFF);
-  // static const black = Color(0xFF1F1F1F);
+  static const black = Color(0xFF1F1F1F);
   static const darkGrey = Color(0xFF374151);
   static const grey = Color(0xFF9EA4B1);
   static const lightGrey = Color(0xFFF3F4F6);

@@ -21,6 +21,7 @@ export 'shared/components/buttons/kazi_back_and_pills.dart';
 export 'shared/components/buttons/kazi_circular_button.dart';
 export 'shared/components/buttons/kazi_elevated_button.dart';
 export 'shared/components/buttons/kazi_pill_button.dart';
+export 'shared/components/buttons/kazi_text_button.dart';
 export 'shared/components/buttons/kazi_title_and_pill.dart';
 //Shared - Components
 export 'shared/components/calendar/kazi_calendar.dart';
@@ -33,6 +34,7 @@ export 'shared/components/form/kazi_text_form_field.dart';
 export 'shared/components/kazi_page_title.dart';
 export 'shared/components/loading/kazi_loading.dart';
 export 'shared/components/no_data/kazi_no_data.dart';
+export 'shared/components/safe_area/kazi_padding_wrap.dart';
 export 'shared/components/safe_area/kazi_safe_area.dart';
 export 'shared/components/scroll/kazi_scroll_behavior.dart';
 export 'shared/components/scroll/kazi_single_scroll_view.dart';

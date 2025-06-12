@@ -31,6 +31,7 @@ abstract class KaziThemeSettings {
       bottomNavigationBarTheme: _bottomNavigationBarTheme(colors),
       bottomSheetTheme: _bottomSheetTheme(colors),
       floatingActionButtonTheme: _floatingActionButtonTheme(colors),
+      outlinedButtonTheme: _outlinedButtonTheme(colors),
       dividerTheme: _dividerTheme(colors),
       navigationRailTheme: _navigationRailTheme(colors),
       tabBarTheme: _tabBarTheme(colors),
@@ -90,9 +91,12 @@ abstract class KaziThemeSettings {
       ListTileThemeData(selectedColor: colors.secondary);
 
   static AppBarTheme _appBarTheme(ColorScheme colors) => AppBarTheme(
-        elevation: 0,
-        backgroundColor: colors.primary,
-        // foregroundColor: colors.onSurface,
+        elevation: 1,
+        shadowColor: KaziColors.black.withAlpha(100),
+        backgroundColor: KaziColors.white,
+        surfaceTintColor: KaziColors.white,
+        foregroundColor: KaziColors.grey,
+        titleTextStyle: KaziTextStyles.headlineLg,
       );
 
   static TabBarThemeData _tabBarTheme(ColorScheme colors) => TabBarThemeData(

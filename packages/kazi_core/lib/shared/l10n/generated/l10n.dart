@@ -28,10 +28,9 @@ class KaziLocalizations {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<KaziLocalizations> load(Locale locale) {
-    final name =
-        (locale.countryCode?.isEmpty ?? false)
-            ? locale.languageCode
-            : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -718,6 +717,11 @@ class KaziLocalizations {
   /// `Next`
   String get next {
     return Intl.message('Next', name: 'next', desc: '', args: []);
+  }
+
+  /// `New Client`
+  String get newClient {
+    return Intl.message('New Client', name: 'newClient', desc: '', args: []);
   }
 
   /// `New Password`

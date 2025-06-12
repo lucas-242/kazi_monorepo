@@ -33,7 +33,7 @@ class _ClientsPageState extends State<ClientsPage> {
                 crossAxisCount: 3,
                 crossAxisSpacing: KaziInsets.md,
                 mainAxisSpacing: KaziInsets.md,
-                childAspectRatio: 1.01,
+                childAspectRatio: 0.9,
               ),
               itemCount: clients.length,
               itemBuilder: (context, index) {
