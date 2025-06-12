@@ -55,7 +55,7 @@ class CalendarEventDetail extends StatelessWidget {
           child: Text(KaziLocalizations.current.close),
         ),
         TextButton(
-          onPressed: () => context.navigateTo(AppPages.serviceDetails),
+          onPressed: () => context.navigate(Routes.services),
           child: Text(KaziLocalizations.current.details),
         ),
       ],

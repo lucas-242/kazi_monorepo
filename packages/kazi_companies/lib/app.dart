@@ -27,7 +27,7 @@ class App extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: KaziLocalizations.delegate.supportedLocales,
-        routerConfig: RoutesConfig.router,
+        routerConfig: AppRouter.router,
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:kazi_companies/app_cubit.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
 import 'package:kazi_companies/domain/models/menu.dart';
@@ -23,7 +22,7 @@ class _AppShellState extends State<AppShell> {
     Menu(
       KaziLocalizations.current.services,
       KaziSvgAssets.services,
-      AppPages.services,
+      AppPages.home,
     ),
     Menu(
       KaziLocalizations.current.clients,
@@ -70,9 +69,9 @@ class _AppShellState extends State<AppShell> {
                 children: menus
                     .map(
                       (m) => KaziTextButton(
-                        onTap: () => context.navigateTo(m.route),
+                        onTap: () => context.navigate(m.page.route),
                         text: m.name,
-                        color: cubit.state == m.route
+                        color: cubit.state == m.page
                             ? KaziColors.primary
                             : KaziColors.grey,
                       ),
@@ -101,7 +100,7 @@ class _AppShellState extends State<AppShell> {
       ),
       body: PopScope(
         canPop: false,
-        onPopInvokedWithResult: (_, __) => context.showLeftBottomSheet().then(
+        onPopInvokedWithResult: (_, __) => context.showLeaveBottomSheet().then(
           (_) {
             if (context.mounted) context.pop();
           },

@@ -28,7 +28,7 @@ class _SplashPageState extends State<SplashPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _initAnimation());
     Future.delayed(const Duration(seconds: 3)).then(
       (_) => {
-        if (mounted) context.navigateTo(AppPages.services),
+        if (mounted) context.navigate(Routes.services),
       },
     );
     super.initState();

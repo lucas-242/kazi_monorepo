@@ -21,6 +21,7 @@ dependencies:
     git:
       url: https://github.com/lucas-242/kazi_core.git
       ref: 0.5.0
+  web: ^1.1.1
 
 dev_dependencies:
   flutter_test:

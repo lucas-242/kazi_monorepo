@@ -38,8 +38,7 @@ export 'shared/components/safe_area/kazi_padding_wrap.dart';
 export 'shared/components/safe_area/kazi_safe_area.dart';
 export 'shared/components/scroll/kazi_scroll_behavior.dart';
 export 'shared/components/scroll/kazi_single_scroll_view.dart';
-export 'shared/components/snack_bar/kazi_snack_bar.dart';
-export 'shared/components/snack_bar/kazi_snack_bar_type.dart';
+export 'shared/components/snack_bar/kazi_snackbar.dart';
 export 'shared/components/svg/kazi_svg.dart';
 export 'shared/components/webview/kazi_webview.dart';
 //Shared - Entities
@@ -60,7 +59,6 @@ export 'shared/injection/service_injector.dart';
 export 'shared/injection/service_locator.dart';
 export 'shared/l10n/generated/l10n.dart';
 export 'shared/models/errors.dart';
-export 'shared/models/route_params.dart';
 export 'shared/themes/themes.dart';
 export 'shared/utils/base_cubit.dart';
 export 'shared/utils/base_state.dart';

@@ -1,73 +1,35 @@
 import 'package:kazi_companies/core/routes/routes.dart';
 
 enum AppPages {
-  services(0),
-  serviceDetails(0),
-  addServices(1),
-  servicesType(2),
-  addServiceType(3),
-  clients(4),
-  employees(5),
-  employeeDetails(5),
-  addEmployee(6),
-  updateEmployee(7),
-  signIn(10),
-  signUp(11),
-  forgotPassword(12),
-  resetPassword(13),
-  privacyPolicy(14),
-  privacyPolicyWebView(15);
+  home(0, Routes.home),
+  clients(1, Routes.clients),
+  employees(2, Routes.employees);
 
-  const AppPages(this.value);
+  const AppPages(this.indexPage, this.route);
 
-  final int value;
+  final int indexPage;
+  final String route;
 
   static AppPages fromIndex(int value) {
     for (AppPages page in AppPages.values) {
-      if (page.value == value) {
+      if (page.indexPage == value) {
         return page;
       }
     }
 
-    return services;
+    return home;
   }
 
-  static String getRoute(AppPages page, {int? id}) {
-    switch (page) {
-      case AppPages.services:
-        return AppRoutes.services;
-      case AppPages.addServices:
-        return '${AppRoutes.services}/${AppRoutes.add}';
-      case AppPages.serviceDetails:
-        return '${AppRoutes.services}/$id';
-      case AppPages.servicesType:
-        return '${AppRoutes.services}/${AppRoutes.type}';
-      case AppPages.addServiceType:
-        return '${AppRoutes.services}/${AppRoutes.type}/${AppRoutes.add}';
-      case AppPages.clients:
-        return AppRoutes.clients;
-
-      case AppPages.employees:
-        return AppRoutes.employees;
-      case AppPages.employeeDetails:
-        return '${AppRoutes.employees}/$id';
-      case AppPages.addEmployee:
-        return AppRoutes.addEmployee;
-      case AppPages.updateEmployee:
-        return '${AppRoutes.updateEmployee}/$id';
-
-      case AppPages.signIn:
-        return AppRoutes.signIn;
-      case AppPages.signUp:
-        return AppRoutes.signUp;
-      case AppPages.forgotPassword:
-        return AppRoutes.forgotPassword;
-      case AppPages.resetPassword:
-        return '/${AppRoutes.resetPassword}';
-      case AppPages.privacyPolicy:
-        return AppRoutes.privacyPolicy;
-      case AppPages.privacyPolicyWebView:
-        return '${AppRoutes.privacyPolicy}/${AppRoutes.webView}';
+  static AppPages? fromRoute(String route) {
+    switch (route) {
+      case Routes.home:
+        return AppPages.home;
+      case Routes.clients:
+        return AppPages.clients;
+      case Routes.employees:
+        return AppPages.employees;
+      default:
+        return null;
     }
   }
 }

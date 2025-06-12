@@ -10,9 +10,9 @@ import 'package:kazi_companies/presenter/initial/pages/splash_page.dart';
 import 'package:kazi_companies/presenter/services/pages/services_page.dart';
 import 'package:kazi_core/kazi_core.dart';
 
-abstract class RoutesConfig {
+abstract class AppRouter {
   static final router = GoRouter(
-    initialLocation: AppRoutes.initial,
+    initialLocation: Routes.initial,
     routes: [
       ..._initialRoutes,
       _appShellRoutes,
@@ -21,7 +21,7 @@ abstract class RoutesConfig {
 
   static final _initialRoutes = [
     GoRoute(
-      path: AppRoutes.initial,
+      path: Routes.initial,
       pageBuilder: (context, state) =>
           _customTransition(state, const SplashPage()),
     ),
@@ -31,12 +31,12 @@ abstract class RoutesConfig {
     builder: (context, state, child) => AppShell(child: child),
     routes: [
       GoRoute(
-        path: AppRoutes.services,
+        path: Routes.services,
         pageBuilder: (context, state) =>
             _customTransition(state, const ServicesPage()),
       ),
       GoRoute(
-        path: AppRoutes.clients,
+        path: Routes.clients,
         pageBuilder: (context, state) =>
             _customTransition(state, const ClientsPage()),
       ),
@@ -45,23 +45,23 @@ abstract class RoutesConfig {
             EmployeesShell(employeeId: _getId(state), child: child),
         routes: [
           GoRoute(
-            path: AppRoutes.employees,
+            path: Routes.employees,
             builder: (context, state) => const EmployeesPage(),
           ),
           GoRoute(
-            path: AppRoutes.addEmployee,
+            path: Routes.addEmployee,
             builder: (context, state) =>
                 const EmployeeDetailsPage(viewState: ViewState.create),
           ),
           GoRoute(
-            path: '${AppRoutes.updateEmployee}/:id',
+            path: '${Routes.updateEmployee}/:id',
             builder: (context, state) => EmployeeDetailsPage(
               id: _getId(state),
               viewState: ViewState.update,
             ),
           ),
           GoRoute(
-            path: '${AppRoutes.employees}/:id',
+            path: '${Routes.employees}/:id',
             builder: (context, state) => EmployeeDetailsPage(
               id: _getId(state),
               viewState: ViewState.read,

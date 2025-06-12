@@ -35,21 +35,20 @@ class EmployeesPage extends StatelessWidget {
                           ),
                           KaziCircularButton(
                             child: const Icon(Icons.add),
-                            onTap: () =>
-                                context.navigateTo(AppPages.addEmployee),
+                            onTap: () => context.navigate(Routes.addEmployee),
                           ),
                         ],
                       ),
                       KaziSpacings.verticalLg,
                       CustomUserTable(
                         data: state.employees,
-                        onTap: (user) => context.navigateTo(
-                          AppPages.employeeDetails,
-                          id: user.id,
+                        onTap: (user) => context.navigate(
+                          Routes.employees,
+                          params: {'id': user.id},
                         ),
-                        onEdit: (user) => context.navigateTo(
-                          AppPages.updateEmployee,
-                          id: user.id,
+                        onEdit: (user) => context.navigate(
+                          Routes.updateEmployee,
+                          params: {'id': user.id},
                         ),
                         onDelete: (user) =>
                             context.showSnackBar('Usuário Deletado'),
