@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kazi_core/kazi_core.dart';
 
-class InfoLine extends StatelessWidget {
-  const InfoLine({
+class PersonalInfoRow extends StatelessWidget {
+  const PersonalInfoRow({
     super.key,
     required this.icon,
     required this.color,
@@ -21,7 +21,7 @@ class InfoLine extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(KaziInsets.sm),
+            borderRadius: BorderRadius.circular(KaziInsets.xs),
             color: color.withAlpha(100),
           ),
           padding: const EdgeInsets.all(KaziInsets.sm),

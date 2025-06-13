@@ -3,13 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kazi_core/shared/themes/themes.dart';
 
 abstract class KaziTextStyles {
-  /// 32px, [KaziColors.darkGrey], [FontWeight.w500]
+  /// 32px, [KaziColors.darkGrey], [FontWeight.w700]
   static final headlineLg = textTheme.headlineLarge!;
 
-  /// 24px, [KaziColors.darkGrey], [FontWeight.w500]
+  /// 24px, [KaziColors.darkGrey], [FontWeight.w700]
   static final headlineMd = textTheme.headlineMedium!;
 
-  /// 18px, [KaziColors.grey], [FontWeight.w500]
+  /// 18px, [KaziColors.darkGrey], [FontWeight.w700]
   static final headlineSm = textTheme.headlineSmall!;
 
   /// 24px, [KaziColors.darkGrey], [FontWeight.w500]
@@ -45,17 +45,17 @@ abstract class KaziTextStyles {
     displaySmall: GoogleFonts.outfit(),
     headlineLarge: GoogleFonts.outfit(
       color: KaziColors.darkGrey,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w700,
       fontSize: 32,
     ),
     headlineMedium: GoogleFonts.outfit(
       color: KaziColors.darkGrey,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w700,
       fontSize: 24,
     ),
     headlineSmall: GoogleFonts.outfit(
-      color: KaziColors.grey,
-      fontWeight: FontWeight.w500,
+      color: KaziColors.darkGrey,
+      fontWeight: FontWeight.w700,
       fontSize: 18,
     ),
     titleLarge: GoogleFonts.outfit(

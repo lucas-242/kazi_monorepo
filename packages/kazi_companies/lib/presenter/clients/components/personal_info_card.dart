@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kazi_companies/presenter/clients/components/badge_label.dart';
-import 'package:kazi_companies/presenter/clients/components/info_line.dart';
+import 'package:kazi_companies/presenter/clients/components/personal_info_row.dart';
 import 'package:kazi_companies/presenter/clients/models/client_info.dart';
 import 'package:kazi_core/kazi_core.dart';
 
-class HeaderDetails extends StatelessWidget {
-  const HeaderDetails({super.key, required this.clientInfo});
+class PersonalInfoCard extends StatelessWidget {
+  const PersonalInfoCard({super.key, required this.clientInfo});
   final ClientInfo clientInfo;
 
   @override
@@ -20,11 +20,11 @@ class HeaderDetails extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CircleAvatar(
-              radius: 42,
+              radius: 55,
               backgroundImage:
                   user.photoUrl != null ? NetworkImage(user.photoUrl!) : null,
               child: user.photoUrl == null
-                  ? const Icon(Icons.person, size: 42)
+                  ? const Icon(Icons.person, size: 55)
                   : null,
             ),
             Expanded(
@@ -35,8 +35,12 @@ class HeaderDetails extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(user.name, style: KaziTextStyles.titleLg),
+                          Text(
+                            user.name,
+                            style: KaziTextStyles.headlineLg,
+                          ),
                           Text('Cliente desde ${user.admissionDate?.format()}'),
                         ],
                       ),
@@ -55,13 +59,13 @@ class HeaderDetails extends StatelessWidget {
                         spacing: KaziInsets.lg,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          InfoLine(
+                          PersonalInfoRow(
                             icon: Icons.mail,
                             color: KaziColors.blue,
                             label: KaziLocalizations.current.email,
                             text: user.email,
                           ),
-                          InfoLine(
+                          PersonalInfoRow(
                             icon: Icons.phone,
                             color: KaziColors.green,
                             label: KaziLocalizations.current.phone,
@@ -73,13 +77,13 @@ class HeaderDetails extends StatelessWidget {
                         spacing: KaziInsets.lg,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          InfoLine(
+                          PersonalInfoRow(
                             icon: Icons.cake,
                             color: KaziColors.pink,
                             label: 'Data de Nascimento',
                             text: user.birthDate.format(),
                           ),
-                          InfoLine(
+                          PersonalInfoRow(
                             icon: Icons.place,
                             color: KaziColors.purple,
                             label: KaziLocalizations.current.address,

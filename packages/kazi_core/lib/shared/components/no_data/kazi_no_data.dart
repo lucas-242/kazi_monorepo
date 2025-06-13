@@ -23,7 +23,7 @@ class KaziNoData extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: KaziInsets.lg),
           child: Text(
             message,
-            style: KaziTextStyles.headlineSm,
+            style: KaziTextStyles.headlineSm.copyWith(color: KaziColors.grey),
             textAlign: TextAlign.center,
           ),
         ),
