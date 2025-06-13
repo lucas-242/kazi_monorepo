@@ -18,38 +18,41 @@ class KaziPageTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: KaziTextStyles.headlineLg,
-        ),
-        Row(
-          children: [
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 280),
-              child: KaziTextFormField(
-                labelText: searchLabel,
-                prefixIcon: const Icon(Icons.search),
-                controller: searchController,
-                onChanged: onSearchChanged,
-              ),
-            ),
-            if (onFilter != null)
-              Padding(
-                padding: const EdgeInsets.only(left: KaziInsets.md),
-                child: KaziElevatedButton.icon(
-                  onTap: onFilter!,
-                  icon: const Icon(Icons.filter_alt),
-                  label: KaziLocalizations.current.filters,
-                  backgroundColor: KaziColors.lightGrey,
-                  foregroundColor: KaziColors.darkGrey,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: KaziInsets.xLg),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: KaziTextStyles.headlineLg,
+          ),
+          Row(
+            children: [
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 280),
+                child: KaziTextFormField(
+                  labelText: searchLabel,
+                  prefixIcon: const Icon(Icons.search),
+                  controller: searchController,
+                  onChanged: onSearchChanged,
                 ),
               ),
-          ],
-        ),
-      ],
+              if (onFilter != null)
+                Padding(
+                  padding: const EdgeInsets.only(left: KaziInsets.md),
+                  child: KaziElevatedButton.icon(
+                    onTap: onFilter!,
+                    icon: const Icon(Icons.filter_alt),
+                    label: KaziLocalizations.current.filters,
+                    backgroundColor: KaziColors.lightGrey,
+                    foregroundColor: KaziColors.darkGrey,
+                  ),
+                ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

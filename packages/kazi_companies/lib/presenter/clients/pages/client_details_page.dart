@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kazi_companies/presenter/clients/components/most_used_services.dart';
 import 'package:kazi_companies/presenter/clients/components/personal_info_card.dart';
 import 'package:kazi_companies/presenter/clients/components/services_history.dart';
 import 'package:kazi_companies/presenter/clients/cubit/client_details_cubit.dart';
+import 'package:kazi_companies/presenter/clients/models/client_info.dart';
 import 'package:kazi_core/kazi_core.dart';
-
-import '../components/most_used_services.dart';
-import '../models/client_info.dart';
 
 class ClientDetailsPage extends StatefulWidget {
   const ClientDetailsPage({super.key, this.client, this.clientId});
@@ -35,13 +34,9 @@ class _ClientDetailsPageState extends State<ClientDetailsPage> {
           return KaziSafeArea(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(KaziInsets.xLg),
+                padding: const EdgeInsets.only(top: KaziInsets.xxLg),
                 child: BlocBuilder<ClientDetailsCubit, ClientDetailsState>(
                   builder: (context, state) {
-                    final user = state.clientInfo.user;
-                    final address =
-                        user.addresses.isNotEmpty ? user.addresses.first : null;
-
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

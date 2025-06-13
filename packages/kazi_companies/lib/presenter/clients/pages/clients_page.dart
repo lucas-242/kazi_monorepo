@@ -26,7 +26,6 @@ class _ClientsPageState extends State<ClientsPage> {
             searchLabel: 'Buscar Clientes...',
             onFilter: () {},
           ),
-          KaziSpacings.verticalXxLg,
           Expanded(
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
