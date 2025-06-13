@@ -1,28 +1,11 @@
 import 'package:kazi_core/kazi_core.dart';
 
-class ServiceHistoryItem {
-  ServiceHistoryItem({
-    required this.serviceName,
-    required this.professionalName,
-    required this.date,
-    this.notes,
-  });
-  final String serviceName;
-  final String professionalName;
-  final DateTime date;
-  final String? notes;
-
-  String get formattedDate =>
-      '${date.day.toString().padLeft(2, '0')}/${date.month.toString().padLeft(2, '0')}/${date.year}';
-}
-
 class ClientInfo {
   ClientInfo({
     required this.user,
     required this.lastServiceName,
     required this.lastServiceDate,
     required this.mostUsedServices,
-    this.isBirthday = false,
     this.serviceHistory = const [],
   });
 
@@ -41,14 +24,12 @@ class ClientInfo {
         lastServiceName = '',
         lastServiceDate = DateTime(2000),
         mostUsedServices = const {},
-        isBirthday = false,
         serviceHistory = const [];
 
   final User user;
   final String lastServiceName;
   final DateTime lastServiceDate;
   final Map<String, int> mostUsedServices;
-  final bool isBirthday;
   final List<ServiceHistoryItem> serviceHistory;
 
   bool get isLastServiceLate =>
@@ -58,4 +39,20 @@ class ClientInfo {
 
   String get lastServiceDateFormatted =>
       '${lastServiceDate.day.toString().padLeft(2, '0')}/${lastServiceDate.month.toString().padLeft(2, '0')}/${lastServiceDate.year}';
+}
+
+class ServiceHistoryItem {
+  ServiceHistoryItem({
+    required this.serviceName,
+    required this.professionalName,
+    required this.date,
+    this.notes,
+  });
+  final String serviceName;
+  final String professionalName;
+  final DateTime date;
+  final String? notes;
+
+  String get formattedDate =>
+      '${date.day.toString().padLeft(2, '0')}/${date.month.toString().padLeft(2, '0')}/${date.year}';
 }

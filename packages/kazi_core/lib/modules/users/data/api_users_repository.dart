@@ -28,7 +28,7 @@ final class ApiUsersRepository implements UsersRepository {
   @override
   Future<List<User>> get(GetUsersParams params) async {
     try {
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
 
       Iterable<User> response = <User>[];
 
@@ -86,6 +86,7 @@ final _employeesMock = [
     authToken: '',
     refreshToken: '',
     authExpires: DateTime.now(),
+    phones: const ['(21) 33333-4444'],
     addresses: const [
       Address(
         id: 999,
@@ -131,6 +132,7 @@ final _employeesMock = [
     authToken: '',
     refreshToken: '',
     authExpires: DateTime.now(),
+    phones: const ['(21) 44444-4444'],
     addresses: const [
       Address(
         id: 998,
@@ -202,6 +204,7 @@ final _employeesMock = [
     authToken: '',
     refreshToken: '',
     authExpires: DateTime.now(),
+    phones: const ['(21) 43213-7887'],
     addresses: const [
       Address(
         id: 998,
@@ -254,6 +257,7 @@ final _employeesMock = [
     authToken: '',
     refreshToken: '',
     authExpires: DateTime.now(),
+    phones: const ['(11) 94444-4444'],
     addresses: const [
       Address(
         id: 997,
@@ -276,6 +280,7 @@ final _employeesMock = [
     authToken: '',
     refreshToken: '',
     authExpires: DateTime.now(),
+    phones: const ['(11) 44444-4444'],
   ),
   User(
     id: 6,
@@ -287,5 +292,6 @@ final _employeesMock = [
     authToken: '',
     refreshToken: '',
     authExpires: DateTime.now(),
+    phones: const ['(11) 44444-4444'],
   ),
 ];

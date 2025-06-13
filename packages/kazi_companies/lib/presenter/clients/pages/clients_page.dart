@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kazi_companies/presenter/clients/components/client_card.dart';
+import 'package:kazi_companies/core/components/user_card/user_card.dart';
+import 'package:kazi_companies/presenter/clients/mock/mock_clients.dart';
+import 'package:kazi_companies/presenter/clients/models/client_info.dart';
 import 'package:kazi_core/kazi_core.dart';
-
-import '../mock/mock_clients.dart';
-import '../models/client_info.dart';
 
 class ClientsPage extends StatefulWidget {
   const ClientsPage({super.key});
@@ -37,7 +36,7 @@ class _ClientsPageState extends State<ClientsPage> {
               itemCount: clients.length,
               itemBuilder: (context, index) {
                 final client = clients[index];
-                return ClientCard(client: client);
+                return UserCard(user: client.user, clientInfo: client);
               },
             ),
           ),

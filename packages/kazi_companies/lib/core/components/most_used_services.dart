@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kazi_companies/presenter/clients/components/badge_label.dart';
+import 'package:kazi_companies/core/components/badge_label.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 class MostUsedServices extends StatelessWidget {

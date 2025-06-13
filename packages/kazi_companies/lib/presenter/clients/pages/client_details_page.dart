@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kazi_companies/presenter/clients/components/most_used_services.dart';
+import 'package:kazi_companies/core/components/most_used_services.dart';
 import 'package:kazi_companies/presenter/clients/components/personal_info_card.dart';
 import 'package:kazi_companies/presenter/clients/components/services_history.dart';
 import 'package:kazi_companies/presenter/clients/cubit/client_details_cubit.dart';

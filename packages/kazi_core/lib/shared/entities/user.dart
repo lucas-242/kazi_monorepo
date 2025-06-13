@@ -58,6 +58,8 @@ class User extends Equatable {
 
   String get shortName => name.length > 18 ? name.split('').first : name;
 
+  bool get isBirthdayInMonth => DateTime.now().month == birthDate.month;
+
   User copyWith({
     String? name,
     String? email,

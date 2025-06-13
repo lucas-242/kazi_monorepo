@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kazi_companies/presenter/clients/components/badge_label.dart';
+import 'package:kazi_companies/core/components/badge_label.dart';
 import 'package:kazi_companies/presenter/clients/components/personal_info_row.dart';
 import 'package:kazi_companies/presenter/clients/models/client_info.dart';
 import 'package:kazi_core/kazi_core.dart';
@@ -44,9 +44,9 @@ class PersonalInfoCard extends StatelessWidget {
                           Text('Cliente desde ${user.admissionDate?.format()}'),
                         ],
                       ),
-                      if (clientInfo.isBirthday)
+                      if (clientInfo.user.isBirthdayInMonth)
                         const BadgeLabel(
-                          text: 'Aniversário esta semana!',
+                          text: 'Aniversário este mês!',
                           icon: Icons.cake,
                           color: KaziColors.orange,
                         ),

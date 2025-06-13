@@ -24,6 +24,8 @@ class BadgeLabel extends StatelessWidget {
         borderRadius: BorderRadius.circular(KaziInsets.xxs),
       ),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (icon != null) ...[
             Icon(

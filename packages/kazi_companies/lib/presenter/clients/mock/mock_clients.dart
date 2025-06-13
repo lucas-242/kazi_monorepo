@@ -278,7 +278,6 @@ final mockClients = <ClientInfo>[
       'Esmaltecao': 8,
       'Corte Feminino': 3,
     },
-    isBirthday: true,
     serviceHistory: [
       ServiceHistoryItem(
         serviceName: 'Manicure e Pedicure',
