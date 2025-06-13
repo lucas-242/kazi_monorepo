@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kazi_companies/core/routes/routes.dart';
 import 'package:kazi_companies/presenter/clients/components/badge_label.dart';
 import 'package:kazi_companies/presenter/clients/components/most_used_services.dart';
 import 'package:kazi_companies/presenter/clients/models/client_info.dart';
@@ -102,7 +103,10 @@ class ClientCard extends StatelessWidget {
                 KaziElevatedButton.icon(
                   icon: const Icon(Icons.remove_red_eye_outlined),
                   backgroundColor: KaziColors.lightGrey,
-                  onTap: () {},
+                  onTap: () => context.navigate(
+                    '${Routes.clients}/${client.user.id}',
+                    params: client,
+                  ),
                 ),
               ],
             ),

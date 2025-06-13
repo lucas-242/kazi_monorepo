@@ -9,6 +9,8 @@ abstract class KaziColors {
   static const grey = Color(0xFF9EA4B1);
   static const lightGrey = Color(0xFFF3F4F6);
   static const blue = Color(0xFF5786FF);
+  static const pink = Color(0xFFEB558E);
+  static const purple = Color(0xFF864AC7);
   static const orange = Color(0xFFFE8B58);
   static const green = Color(0xFF6AC3B1);
   static const red = Color(0xFFFE5858);

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kazi_companies/app_shell.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
+import 'package:kazi_companies/presenter/clients/models/client_info.dart';
+import 'package:kazi_companies/presenter/clients/pages/client_details_page.dart';
 import 'package:kazi_companies/presenter/clients/pages/clients_page.dart';
 import 'package:kazi_companies/presenter/employees/pages/employee_details_page.dart';
 import 'package:kazi_companies/presenter/employees/pages/employees_page.dart';
@@ -39,6 +41,16 @@ abstract class AppRouter {
         path: Routes.clients,
         pageBuilder: (context, state) =>
             _customTransition(state, const ClientsPage()),
+      ),
+      GoRoute(
+        path: '${Routes.clients}/:clientId',
+        pageBuilder: (context, state) => _customTransition(
+          state,
+          ClientDetailsPage(
+            client: state.extra as ClientInfo?,
+            clientId: state.pathParameters['clientId'],
+          ),
+        ),
       ),
       ShellRoute(
         builder: (context, state, child) =>

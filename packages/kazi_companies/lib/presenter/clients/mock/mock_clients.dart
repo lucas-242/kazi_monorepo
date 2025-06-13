@@ -106,6 +106,18 @@ final mockClients = <ClientInfo>[
       authToken: '',
       refreshToken: '',
       authExpires: DateTime.now(),
+      addresses: const [
+        Address(
+          id: 1,
+          postalCode: '01234-567',
+          street: 'Rua das Flores',
+          number: 123,
+          neighborhood: 'Centro',
+          city: 'São Paulo',
+          state: 'SP',
+          complement: 'Apto 101',
+        ),
+      ],
     ),
     lastServiceName: 'Corte Masculino',
     lastServiceDate: DateTime.now().subtract(const Duration(days: 25)),
@@ -114,6 +126,25 @@ final mockClients = <ClientInfo>[
       'Barba': 8,
       'Sobrancelha': 5,
     },
+    serviceHistory: [
+      ServiceHistoryItem(
+        serviceName: 'Corte Masculino',
+        professionalName: 'Ana Costa',
+        date: DateTime.now().subtract(const Duration(days: 25)),
+        notes: 'Corte padrão',
+      ),
+      ServiceHistoryItem(
+        serviceName: 'Barba',
+        professionalName: 'Carlos Mendes',
+        date: DateTime.now().subtract(const Duration(days: 40)),
+        notes: 'Barba desenhada',
+      ),
+      ServiceHistoryItem(
+        serviceName: 'Sobrancelha',
+        professionalName: 'Ana Costa',
+        date: DateTime.now().subtract(const Duration(days: 60)),
+      ),
+    ],
   ),
   ClientInfo(
     user: User(
@@ -127,6 +158,18 @@ final mockClients = <ClientInfo>[
       authToken: '',
       refreshToken: '',
       authExpires: DateTime.now(),
+      addresses: const [
+        Address(
+          id: 2,
+          postalCode: '04567-890',
+          street: 'Av. Paulista',
+          number: 2000,
+          neighborhood: 'Bela Vista',
+          city: 'São Paulo',
+          state: 'SP',
+          complement: 'Sala 305',
+        ),
+      ],
     ),
     lastServiceName: 'Escova Progressiva',
     lastServiceDate: DateTime.now().subtract(const Duration(days: 2)),
@@ -135,6 +178,23 @@ final mockClients = <ClientInfo>[
       'Corte Feminino': 7,
       'Hidratacao': 4,
     },
+    serviceHistory: [
+      ServiceHistoryItem(
+        serviceName: 'Escova Progressiva',
+        professionalName: 'Juliana Santos',
+        date: DateTime.now().subtract(const Duration(days: 2)),
+      ),
+      ServiceHistoryItem(
+        serviceName: 'Corte Feminino',
+        professionalName: 'Ana Costa',
+        date: DateTime.now().subtract(const Duration(days: 15)),
+      ),
+      ServiceHistoryItem(
+        serviceName: 'Hidratacao',
+        professionalName: 'Carlos Mendes',
+        date: DateTime.now().subtract(const Duration(days: 30)),
+      ),
+    ],
   ),
   ClientInfo(
     user: User(
@@ -148,6 +208,18 @@ final mockClients = <ClientInfo>[
       authToken: '',
       refreshToken: '',
       authExpires: DateTime.now(),
+      addresses: const [
+        Address(
+          id: 3,
+          postalCode: '06789-123',
+          street: 'Rua do Comércio',
+          number: 45,
+          neighborhood: 'Centro',
+          city: 'Campinas',
+          state: 'SP',
+          complement: '',
+        ),
+      ],
     ),
     lastServiceName: 'Corte + Barba',
     lastServiceDate: DateTime.now().subtract(const Duration(days: 5)),
@@ -156,6 +228,23 @@ final mockClients = <ClientInfo>[
       'Corte Masculino': 6,
       'Barba': 6,
     },
+    serviceHistory: [
+      ServiceHistoryItem(
+        serviceName: 'Corte + Barba',
+        professionalName: 'Ana Costa',
+        date: DateTime.now().subtract(const Duration(days: 5)),
+      ),
+      ServiceHistoryItem(
+        serviceName: 'Corte Masculino',
+        professionalName: 'Carlos Mendes',
+        date: DateTime.now().subtract(const Duration(days: 20)),
+      ),
+      ServiceHistoryItem(
+        serviceName: 'Barba',
+        professionalName: 'Ana Costa',
+        date: DateTime.now().subtract(const Duration(days: 35)),
+      ),
+    ],
   ),
   ClientInfo(
     user: User(
@@ -169,6 +258,18 @@ final mockClients = <ClientInfo>[
       authToken: '',
       refreshToken: '',
       authExpires: DateTime.now(),
+      addresses: const [
+        Address(
+          id: 4,
+          postalCode: '12345-678',
+          street: 'Rua das Palmeiras',
+          number: 789,
+          neighborhood: 'Jardim América',
+          city: 'Ribeirão Preto',
+          state: 'SP',
+          complement: '',
+        ),
+      ],
     ),
     lastServiceName: 'Manicure e Pedicure',
     lastServiceDate: DateTime.now().subtract(const Duration(days: 30)),
@@ -178,6 +279,23 @@ final mockClients = <ClientInfo>[
       'Corte Feminino': 3,
     },
     isBirthday: true,
+    serviceHistory: [
+      ServiceHistoryItem(
+        serviceName: 'Manicure e Pedicure',
+        professionalName: 'Juliana Santos',
+        date: DateTime.now().subtract(const Duration(days: 30)),
+      ),
+      ServiceHistoryItem(
+        serviceName: 'Esmaltecao',
+        professionalName: 'Juliana Santos',
+        date: DateTime.now().subtract(const Duration(days: 45)),
+      ),
+      ServiceHistoryItem(
+        serviceName: 'Corte Feminino',
+        professionalName: 'Ana Costa',
+        date: DateTime.now().subtract(const Duration(days: 60)),
+      ),
+    ],
   ),
   ClientInfo(
     user: User(
@@ -191,6 +309,18 @@ final mockClients = <ClientInfo>[
       authToken: '',
       refreshToken: '',
       authExpires: DateTime.now(),
+      addresses: const [
+        Address(
+          id: 5,
+          postalCode: '54321-000',
+          street: 'Av. Brasil',
+          number: 1500,
+          neighborhood: 'Centro',
+          city: 'Santos',
+          state: 'SP',
+          complement: 'Cobertura',
+        ),
+      ],
     ),
     lastServiceName: 'Corte Degrade',
     lastServiceDate: DateTime.now().subtract(const Duration(days: 10)),
@@ -199,5 +329,22 @@ final mockClients = <ClientInfo>[
       'Barba': 5,
       'Sobrancelha': 2,
     },
+    serviceHistory: [
+      ServiceHistoryItem(
+        serviceName: 'Corte Degrade',
+        professionalName: 'Carlos Mendes',
+        date: DateTime.now().subtract(const Duration(days: 10)),
+      ),
+      ServiceHistoryItem(
+        serviceName: 'Barba',
+        professionalName: 'Ana Costa',
+        date: DateTime.now().subtract(const Duration(days: 25)),
+      ),
+      ServiceHistoryItem(
+        serviceName: 'Sobrancelha',
+        professionalName: 'Juliana Santos',
+        date: DateTime.now().subtract(const Duration(days: 40)),
+      ),
+    ],
   ),
 ];
