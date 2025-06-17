@@ -23,8 +23,9 @@ abstract class AppNavigator {
   static void init() {
     _urlUtils = UrlUtils();
     _currentAppPage = _urlUtils.getInitialMenu();
-    Future.delayed(const Duration(seconds: 1))
-        .then((_) => _updateAppCubit(_currentAppPage.route));
+    Future.delayed(
+      const Duration(milliseconds: 200),
+    ).then((_) => _updateAppCubit(_currentAppPage.route));
     GoRouter.optionURLReflectsImperativeAPIs = true;
   }
 

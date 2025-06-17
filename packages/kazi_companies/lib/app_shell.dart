@@ -38,8 +38,6 @@ class _AppShellState extends State<AppShell> {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<AppCubit>();
-
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80,
@@ -65,34 +63,42 @@ class _AppShellState extends State<AppShell> {
                 ],
               ),
               const Spacer(),
-              Row(
-                children: menus
-                    .map(
-                      (m) => KaziTextButton(
-                        onTap: () => context.navigate(m.page.route),
-                        text: m.name,
-                        color: cubit.state == m.page
-                            ? KaziColors.primary
-                            : KaziColors.grey,
-                      ),
-                    )
-                    .toList(),
+              BlocBuilder<AppCubit, AppPages>(
+                builder: (context, state) {
+                  return Row(
+                    children: menus
+                        .map(
+                          (m) => KaziTextButton(
+                            onTap: () => context.navigate(m.page.route),
+                            text: m.name,
+                            color: state == m.page
+                                ? KaziColors.primary
+                                : KaziColors.grey,
+                          ),
+                        )
+                        .toList(),
+                  );
+                },
               ),
               const Spacer(),
-              Row(
-                spacing: KaziInsets.md,
-                children: [
-                  if (cubit.state == AppPages.clients)
-                    KaziElevatedButton.icon(
-                      onTap: () {},
-                      icon: const Icon(Icons.add),
-                      label: KaziLocalizations.current.newClient,
-                    ),
-                  const CircleAvatar(
-                    radius: 24,
-                    child: KaziSvg(KaziSvgAssets.person),
-                  ),
-                ],
+              BlocBuilder<AppCubit, AppPages>(
+                builder: (context, state) {
+                  return Row(
+                    spacing: KaziInsets.md,
+                    children: [
+                      if (state == AppPages.clients)
+                        KaziElevatedButton.icon(
+                          onTap: () {},
+                          icon: const Icon(Icons.add),
+                          label: KaziLocalizations.current.newClient,
+                        ),
+                      const CircleAvatar(
+                        radius: 24,
+                        child: KaziSvg(KaziSvgAssets.person),
+                      ),
+                    ],
+                  );
+                },
               ),
             ],
           ),
