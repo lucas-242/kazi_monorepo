@@ -34,6 +34,10 @@ extension DateTimeExtensions on DateTime {
   ///Formats date to yyyy-MM-dd formmat using the [locale]
   String format([Locale? locale]) => DateFormat.yMd(locale).format(this);
 
+  ///Formats date to MM-EE-dd HH:mm formmat using the [locale]
+  String formatWithHour([Locale? locale]) =>
+      DateFormat.MEd(locale).add_Hm().format(this);
+
   ///Formats date to HH:mm formmat using the [locale]
   String formatHour([Locale? locale]) => DateFormat.Hm(locale).format(this);
 }

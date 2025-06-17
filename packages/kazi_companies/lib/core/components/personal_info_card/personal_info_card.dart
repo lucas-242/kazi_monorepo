@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:kazi_companies/core/components/badge_label.dart';
-import 'package:kazi_companies/presenter/clients/components/personal_info_row.dart';
-import 'package:kazi_companies/presenter/clients/models/client_info.dart';
+import 'package:kazi_companies/core/components/personal_info_card/components/personal_info_row.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 class PersonalInfoCard extends StatelessWidget {
-  const PersonalInfoCard({super.key, required this.clientInfo});
-  final ClientInfo clientInfo;
+  const PersonalInfoCard({super.key, required this.user});
+  final User user;
 
   @override
   Widget build(BuildContext context) {
-    final user = clientInfo.user;
+    final isClient = user.userType == UserType.client;
 
     return Card(
       child: Padding(
@@ -41,10 +40,15 @@ class PersonalInfoCard extends StatelessWidget {
                             user.name,
                             style: KaziTextStyles.headlineLg,
                           ),
-                          Text('Cliente desde ${user.admissionDate?.format()}'),
+                          if (isClient)
+                            Text(
+                                'Cliente desde ${user.admissionDate?.format()}')
+                          else
+                            Text(
+                                '${user.role} admitido(a) em ${user.admissionDate?.format()}'),
                         ],
                       ),
-                      if (clientInfo.user.isBirthdayInMonth)
+                      if (user.isBirthdayInMonth)
                         const BadgeLabel(
                           text: 'Aniversário este mês!',
                           icon: Icons.cake,

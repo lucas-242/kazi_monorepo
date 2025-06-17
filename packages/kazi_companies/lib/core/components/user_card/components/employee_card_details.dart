@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kazi_companies/core/components/badge_label.dart';
+import 'package:kazi_companies/core/components/services_badge_list.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 class EmployeeCardDetails extends StatelessWidget {
@@ -9,19 +9,25 @@ class EmployeeCardDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: KaziInsets.sm,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Serviços', style: KaziTextStyles.headlineSm),
-        KaziSpacings.verticalSm,
-        Wrap(
-          spacing: KaziInsets.xxs,
-          runSpacing: KaziInsets.xxs,
-          children: user.services
-              .map(
-                (s) => BadgeLabel(text: s.name, color: s.colorAs),
-              )
-              .toList(),
+        Text.rich(
+          TextSpan(
+            children: [
+              const TextSpan(text: 'Próximo serviço: '),
+              TextSpan(
+                text: DateTime.now()
+                    .add(const Duration(minutes: 30))
+                    .formatWithHour(),
+                style: KaziTextStyles.titleSm,
+              ),
+            ],
+          ),
         ),
+        
+        Text('Especialidades', style: KaziTextStyles.headlineSm),
+        ServicesBadgeList(user: user),
       ],
     );
   }
