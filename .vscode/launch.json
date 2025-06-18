@@ -21,7 +21,7 @@
           "APP_ENV=dev",
           "-d",
           "chrome",
-          "--wasm",
+          // "--wasm",
           "--web-experimental-hot-reload"
         ]
       },
