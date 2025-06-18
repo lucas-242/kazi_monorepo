@@ -9,7 +9,6 @@ import 'package:kazi_companies/presenter/clients/pages/client_details_page.dart'
 import 'package:kazi_companies/presenter/clients/pages/clients_page.dart';
 import 'package:kazi_companies/presenter/employees/pages/employee_details_page.dart';
 import 'package:kazi_companies/presenter/employees/pages/employees_page.dart';
-import 'package:kazi_companies/presenter/employees/pages/employees_shell.dart';
 import 'package:kazi_companies/presenter/initial/pages/splash_page.dart';
 import 'package:kazi_companies/presenter/services/pages/services_page.dart';
 import 'package:kazi_core/kazi_core.dart';
@@ -92,34 +91,16 @@ abstract class AppRouter {
           ),
         ),
       ),
-      ShellRoute(
-        builder: (context, state, child) =>
-            EmployeesShell(employeeId: _getId(state), child: child),
-        routes: [
-          GoRoute(
-            path: Routes.employees,
-            builder: (context, state) => const EmployeesPage(),
-          ),
-          GoRoute(
-            path: Routes.addEmployee,
-            builder: (context, state) =>
-                const EmployeeDetailsPage(viewState: ViewState.create),
-          ),
-          GoRoute(
-            path: '${Routes.updateEmployee}/:id',
-            builder: (context, state) => EmployeeDetailsPage(
-              id: _getId(state),
-              viewState: ViewState.update,
-            ),
-          ),
-          GoRoute(
-            path: '${Routes.employees}/:id',
-            builder: (context, state) => EmployeeDetailsPage(
-              id: _getId(state),
-              viewState: ViewState.read,
-            ),
-          ),
-        ],
+      GoRoute(
+        path: Routes.employees,
+        builder: (context, state) => const EmployeesPage(),
+      ),
+      GoRoute(
+        path: '${Routes.employees}/:id',
+        builder: (context, state) => EmployeeDetailsPage(
+          id: _getId(state),
+          employee: state.extra as User?,
+        ),
       ),
     ],
   );

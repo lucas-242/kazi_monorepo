@@ -16,8 +16,6 @@ abstract class Routes {
 
   // Employees
   static const employees = '/employees';
-  static const addEmployee = '/employees/add';
-  static const updateEmployee = '/employees/update';
 
   static const signIn = '/sign-in';
   static const signUp = '/sign-up';
