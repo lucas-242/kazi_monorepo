@@ -27,5 +27,5 @@ scripts:
     description: Executa flutter pub get em todos os pacotes
 
   build-runner:
-    run: melos exec --scope="kazi_companies" -- "dart run build_runner watch -d"
-    description: Executa build runner watch apenas no pacote kazi_companies
+    run: melos exec -- "dart run build_runner watch -d"
+    description: Executa build runner watch em todos os pacotes
