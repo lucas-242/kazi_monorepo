@@ -29,6 +29,12 @@ enum AppPages {
       case Routes.employees:
         return AppPages.employees;
       default:
+        if (route.startsWith(Routes.clients)) {
+          return AppPages.clients;
+        }
+        if (route.startsWith(Routes.employees)) {
+          return AppPages.employees;
+        }
         return null;
     }
   }

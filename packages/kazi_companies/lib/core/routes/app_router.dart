@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kazi_companies/app_controller.dart';
 import 'package:kazi_companies/app_shell.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
 import 'package:kazi_companies/presenter/clients/models/client_info.dart';
@@ -12,14 +14,52 @@ import 'package:kazi_companies/presenter/initial/pages/splash_page.dart';
 import 'package:kazi_companies/presenter/services/pages/services_page.dart';
 import 'package:kazi_core/kazi_core.dart';
 
+///This class is responsible to configure the Router and should be called only by the [AppNavigator]
 abstract class AppRouter {
-  static final router = GoRouter(
-    initialLocation: Routes.initial,
-    routes: [
-      ..._initialRoutes,
-      _appShellRoutes,
-    ],
-  );
+  static GoRouter? _router;
+  static ProviderContainer? _container;
+
+  static GoRouter get router {
+    if (_router == null) {
+      throw StateError(
+        'AppRouter not initialized. Call AppRouter.init() first.',
+      );
+    }
+    return _router!;
+  }
+
+  static void setPathStrategy() {}
+
+  static void init(ProviderContainer container) {
+    GoRouter.optionURLReflectsImperativeAPIs = true;
+
+    _container = container;
+    _router = GoRouter(
+      initialLocation: Routes.initial,
+      routes: [
+        ..._initialRoutes,
+        _appShellRoutes,
+      ],
+      redirect: (context, state) {
+        _updateAppController(state.uri.toString());
+        return null;
+      },
+    );
+  }
+
+  static void _updateAppController(String route) {
+    final page = AppPages.fromRoute(route);
+    if (page == null) return;
+
+    try {
+      if (_container != null) {
+        final controller = _container!.read(appControllerProvider.notifier);
+        controller.changePage(page);
+      }
+    } catch (e) {
+      debugPrint('AppController not ready yet: $e');
+    }
+  }
 
   static final _initialRoutes = [
     GoRoute(

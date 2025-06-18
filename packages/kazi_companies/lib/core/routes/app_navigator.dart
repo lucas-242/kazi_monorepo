@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kazi_companies/app_cubit.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
 import 'package:kazi_companies/core/routes/url_utils/url_utils.dart';
 import 'package:kazi_core/kazi_core.dart';
@@ -9,6 +8,7 @@ import 'package:kazi_core/kazi_core.dart';
 abstract class AppNavigator {
   static final GoRouter _router = AppRouter.router;
   static late final UrlUtils _urlUtils;
+  static late final ProviderContainer container;
 
   static String _previousRoute = Routes.initial;
   static String _currentRoute = Routes.initial;
@@ -20,18 +20,19 @@ abstract class AppNavigator {
       _router.routerDelegate.navigatorKey.currentContext;
   static AppPages? get currentAppPage => _currentAppPage;
 
-  static void init() {
+  static void init(ProviderContainer providerContainer) {
     _urlUtils = UrlUtils();
     _currentAppPage = _urlUtils.getInitialMenu();
-    Future.delayed(
-      const Duration(milliseconds: 200),
-    ).then((_) => _updateAppCubit(_currentAppPage.route));
-    GoRouter.optionURLReflectsImperativeAPIs = true;
+    container = providerContainer;
+    AppRouter.init(container);
+    // Future.delayed(
+    //   const Duration(milliseconds: 200),
+    // ).then((_) => _updateAppController(_currentAppPage.route));
   }
 
   static void navigate(String route, {Object? params}) {
     _setRoutes(route);
-    _updateAppCubit(route);
+    // _updateAppController(route);
     _navigate(route, params);
   }
 
@@ -40,14 +41,13 @@ abstract class AppNavigator {
     _currentRoute = route;
   }
 
-  static void _updateAppCubit(String route) {
-    final page = AppPages.fromRoute(route);
-    if (page == null) return;
+  // static void _updateAppController(String route) {
+  //   final page = AppPages.fromRoute(route);
+  //   if (page == null) return;
 
-    final cubit = context?.read<AppCubit>();
-    if (cubit == null) return;
-    cubit.changePage(page);
-  }
+  //   final controller = container.read(appControllerProvider.notifier);
+  //   controller.changePage(page);
+  // }
 
   static void _navigate(String route, [Object? params]) {
     Log.navigation('Navigating to $route');
@@ -64,7 +64,7 @@ abstract class AppNavigator {
     bool changeRouteOnly = false,
   }) {
     _setRoutes(route);
-    _updateAppCubit(route);
+    // _updateAppController(route);
     Log.navigation('Pushing to $route');
 
     if (changeRouteOnly) {
@@ -78,7 +78,7 @@ abstract class AppNavigator {
   static void pop() {
     final newRoute = _previousRoute;
 
-    _updateAppCubit(newRoute);
+    // _updateAppController(newRoute);
 
     if (_cantPop(newRoute)) return;
 

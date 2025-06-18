@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kazi_companies/app_cubit.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:kazi_companies/app_controller.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
 import 'package:kazi_companies/domain/models/menu.dart';
 import 'package:kazi_core/kazi_core.dart';
 
-class AppShell extends StatefulWidget {
+class AppShell extends ConsumerStatefulWidget {
   const AppShell({
     super.key,
     required this.child,
@@ -14,10 +14,10 @@ class AppShell extends StatefulWidget {
   final Widget child;
 
   @override
-  State<AppShell> createState() => _AppShellState();
+  ConsumerState<AppShell> createState() => _AppShellState();
 }
 
-class _AppShellState extends State<AppShell> {
+class _AppShellState extends ConsumerState<AppShell> {
   final List<Menu> menus = [
     Menu(
       KaziLocalizations.current.services,
@@ -38,6 +38,8 @@ class _AppShellState extends State<AppShell> {
 
   @override
   Widget build(BuildContext context) {
+    final currentPage = ref.watch(appControllerProvider);
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80,
@@ -63,42 +65,34 @@ class _AppShellState extends State<AppShell> {
                 ],
               ),
               const Spacer(),
-              BlocBuilder<AppCubit, AppPages>(
-                builder: (context, state) {
-                  return Row(
-                    children: menus
-                        .map(
-                          (m) => KaziTextButton(
-                            onTap: () => context.navigate(m.page.route),
-                            text: m.name,
-                            color: state == m.page
-                                ? KaziColors.primary
-                                : KaziColors.grey,
-                          ),
-                        )
-                        .toList(),
-                  );
-                },
+              Row(
+                children: menus
+                    .map(
+                      (m) => KaziTextButton(
+                        onTap: () => context.navigate(m.page.route),
+                        text: m.name,
+                        color: currentPage == m.page
+                            ? KaziColors.primary
+                            : KaziColors.grey,
+                      ),
+                    )
+                    .toList(),
               ),
               const Spacer(),
-              BlocBuilder<AppCubit, AppPages>(
-                builder: (context, state) {
-                  return Row(
-                    spacing: KaziInsets.md,
-                    children: [
-                      if (state == AppPages.clients)
-                        KaziElevatedButton.icon(
-                          onTap: () {},
-                          icon: const Icon(Icons.add),
-                          label: KaziLocalizations.current.newClient,
-                        ),
-                      const CircleAvatar(
-                        radius: 24,
-                        child: KaziSvg(KaziSvgAssets.person),
-                      ),
-                    ],
-                  );
-                },
+              Row(
+                spacing: KaziInsets.md,
+                children: [
+                  if (currentPage == AppPages.clients)
+                    KaziElevatedButton.icon(
+                      onTap: () {},
+                      icon: const Icon(Icons.add),
+                      label: KaziLocalizations.current.newClient,
+                    ),
+                  const CircleAvatar(
+                    radius: 24,
+                    child: KaziSvg(KaziSvgAssets.person),
+                  ),
+                ],
               ),
             ],
           ),
