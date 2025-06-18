@@ -8,7 +8,7 @@
         "program": "packages/kazi_companies/lib/main.dart",
         "args": [
             "--dart-define",
-            "APP_ENV=dev"
+            "APP_ENV=dev",
         ]
       },
       {
@@ -17,8 +17,12 @@
         "request": "launch",
         "program": "packages/kazi_companies/lib/main.dart",
         "args": [
-            "--dart-define",
-            "APP_ENV=dev",
+          "--dart-define",
+          "APP_ENV=dev",
+          "-d",
+          "chrome",
+          "--wasm",
+          "--web-experimental-hot-reload"
         ]
       },
       
