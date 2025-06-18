@@ -18,6 +18,7 @@ dependencies:
   json_annotation: ^4.9.0
   google_fonts: ^6.2.1
   intl: ^0.20.0
+  riverpod: ^2.6.1
   webview_flutter: ^4.8.0
   syncfusion_flutter_calendar: ^29.1.38
 
