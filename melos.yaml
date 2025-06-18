@@ -1,3 +1,27 @@
 name: kazi
 packages:
   - packages/*
+
+flutter:
+  version: beta
+
+scripts:
+  analyze:
+    run: melos exec -- "flutter analyze"
+    description: Executa análise estática em todos os pacotes
+  
+  test:
+    run: melos exec -- "flutter test"
+    description: Executa testes em todos os pacotes
+  
+  build:
+    run: melos exec -- "flutter build"
+    description: Executa build em todos os pacotes
+  
+  clean:
+    run: melos exec -- "flutter clean"
+    description: Limpa builds em todos os pacotes
+  
+  pub-get:
+    run: melos exec -- "flutter pub get"
+    description: Executa flutter pub get em todos os pacotes
