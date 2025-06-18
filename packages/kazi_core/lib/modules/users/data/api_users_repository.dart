@@ -1,4 +1,8 @@
 import 'package:kazi_core/kazi_core.dart';
+import 'package:riverpod/riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'api_users_repository.g.dart';
 
 final class ApiUsersRepository implements UsersRepository {
   @override
@@ -295,3 +299,6 @@ final _employeesMock = [
     phones: const ['(11) 44444-4444'],
   ),
 ];
+
+@riverpod
+UsersRepository usersRepository(Ref ref) => ApiUsersRepository();

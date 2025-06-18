@@ -23,6 +23,18 @@ class User extends Equatable {
     required this.authExpires,
   });
 
+  factory User.empty() => User(
+        id: 0,
+        name: '',
+        email: '',
+        userType: UserType.client,
+        identifier: '',
+        birthDate: DateTime(2000),
+        authToken: '',
+        refreshToken: '',
+        authExpires: DateTime(2100),
+      );
+
   final int id;
   final String name;
   final String email;
