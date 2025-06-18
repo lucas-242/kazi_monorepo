@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:kazi_companies/app.dart';
 import 'package:kazi_companies/core/environments/environment.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
-import 'package:kazi_companies/injection_container.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 Future<void> main() async {
@@ -16,7 +15,6 @@ Future<void> main() async {
 
   AppNavigator.init();
 
-  InjectionContainer.init();
   Log.flow('Environment: ${Environment.environmentValue}');
 
   return runApp(const App());

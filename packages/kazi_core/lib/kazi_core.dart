@@ -14,7 +14,6 @@ export 'modules/users/domain/models/get_users_params.dart';
 export 'modules/users/domain/models/sign_up_params.dart';
 export 'modules/users/domain/models/update_user_params.dart';
 export 'modules/users/domain/repositories/users_repository.dart';
-export 'modules/users/users_module.dart';
 export 'shared/components/bottom_sheet/kazi_bottom_sheet.dart';
 export 'shared/components/buttons/kazi_back_and_pill.dart';
 export 'shared/components/buttons/kazi_back_and_pills.dart';
@@ -55,8 +54,6 @@ export 'shared/enums/order_by.dart';
 export 'shared/enums/user_type.dart';
 //Shared - Others
 export 'shared/extensions/extensions.dart';
-export 'shared/injection/service_injector.dart';
-export 'shared/injection/service_locator.dart';
 export 'shared/l10n/generated/l10n.dart';
 export 'shared/models/errors.dart';
 export 'shared/themes/themes.dart';

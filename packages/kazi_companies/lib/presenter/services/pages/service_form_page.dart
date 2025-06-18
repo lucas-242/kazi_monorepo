@@ -19,7 +19,7 @@ class _ServiceFormPageState extends State<ServiceFormPage> {
 
   @override
   void initState() {
-    _cubit = ServiceLocator.get<ServicesFormCubit>();
+    _cubit = context.read();
     _startTimeController = TextEditingController();
     _endTimeController = TextEditingController();
     super.initState();

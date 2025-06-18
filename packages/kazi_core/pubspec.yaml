@@ -19,7 +19,6 @@ dependencies:
   google_fonts: ^6.2.1
   intl: ^0.20.0
   webview_flutter: ^4.8.0
-  get_it: ^8.0.0
   syncfusion_flutter_calendar: ^29.1.38
 
 dev_dependencies:
