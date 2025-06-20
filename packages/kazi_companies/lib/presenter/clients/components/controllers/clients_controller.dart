@@ -1,0 +1,14 @@
+import 'package:kazi_core/kazi_core.dart';
+import 'package:kazi_core/modules/users/data/api_users_repository.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'clients_controller.g.dart';
+
+@riverpod
+class ClientsController extends _$ClientsController {
+  @override
+  FutureOr<List<ClientInfo>> build() async {
+    final response = await usersRepository(ref).getClientsInfo();
+    return response;
+  }
+}
