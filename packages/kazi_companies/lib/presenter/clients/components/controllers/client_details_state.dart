@@ -1,4 +1,4 @@
-import 'package:kazi_companies/presenter/clients/models/client_info.dart';
+import 'package:kazi_core/shared/entities/client_info.dart';
 
 sealed class ClientDetailsState {
   const ClientDetailsState({required this.clientInfo, this.isEditing = false});

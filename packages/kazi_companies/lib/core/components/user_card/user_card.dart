@@ -3,7 +3,6 @@ import 'package:kazi_companies/core/components/badge_label.dart';
 import 'package:kazi_companies/core/components/user_card/components/client_card_details.dart';
 import 'package:kazi_companies/core/components/user_card/components/employee_card_details.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
-import 'package:kazi_companies/presenter/clients/models/client_info.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 class UserCard extends StatelessWidget {

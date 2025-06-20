@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:kazi_companies/app_controller.dart';
 import 'package:kazi_companies/app_shell.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
-import 'package:kazi_companies/presenter/clients/models/client_info.dart';
 import 'package:kazi_companies/presenter/clients/pages/client_details_page.dart';
 import 'package:kazi_companies/presenter/clients/pages/clients_page.dart';
 import 'package:kazi_companies/presenter/employees/pages/employee_details_page.dart';

@@ -4,7 +4,6 @@ import 'package:kazi_companies/core/components/most_used_services.dart';
 import 'package:kazi_companies/core/components/personal_info_card/personal_info_card.dart';
 import 'package:kazi_companies/presenter/clients/components/controllers/client_details_controller.dart';
 import 'package:kazi_companies/presenter/clients/components/services_history.dart';
-import 'package:kazi_companies/presenter/clients/models/client_info.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 class ClientDetailsPage extends ConsumerWidget {

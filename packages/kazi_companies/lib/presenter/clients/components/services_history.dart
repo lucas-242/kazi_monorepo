@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kazi_companies/core/components/badge_label.dart';
-import 'package:kazi_companies/presenter/clients/models/client_info.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 class ServicesHistory extends StatelessWidget {
