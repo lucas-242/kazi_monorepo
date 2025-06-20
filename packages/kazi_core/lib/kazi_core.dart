@@ -42,6 +42,7 @@ export 'shared/components/svg/kazi_svg.dart';
 export 'shared/components/webview/kazi_webview.dart';
 //Shared - Entities
 export 'shared/entities/address.dart';
+export 'shared/entities/client_info.dart';
 export 'shared/entities/service.dart';
 export 'shared/entities/service_type.dart';
 export 'shared/entities/services_filter.dart';
