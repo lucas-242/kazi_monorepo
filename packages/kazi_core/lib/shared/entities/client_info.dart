@@ -35,6 +35,7 @@ class ClientInfo extends Equatable {
 
   bool get isLastServiceLate =>
       DateTime.now().difference(lastServiceDate).inDays >= 20;
+
   int get daysSinceLastService =>
       DateTime.now().difference(lastServiceDate).inDays;
 

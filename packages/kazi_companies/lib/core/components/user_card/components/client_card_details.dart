@@ -10,6 +10,7 @@ class ClientCardDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           padding: const EdgeInsets.all(KaziInsets.md),
@@ -17,43 +18,54 @@ class ClientCardDetails extends StatelessWidget {
             color: KaziColors.background,
             borderRadius: BorderRadius.circular(KaziInsets.xs),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Último Serviço', style: KaziTextStyles.md),
-                  KaziSpacings.verticalXs,
-                  Text(
-                    clientInfo.lastServiceName,
-                    style:
-                        KaziTextStyles.md.copyWith(fontWeight: FontWeight.bold),
+          child: clientInfo.serviceHistory.isEmpty
+              ? SizedBox(
+                  width: context.width,
+                  child: Text(
+                    'Ainda não realizou serviço',
+                    style: KaziTextStyles.titleSm,
                   ),
-                  Text(
-                    clientInfo.lastServiceDateFormatted,
-                    style: KaziTextStyles.md,
-                  ),
-                ],
-              ),
-              BadgeLabel(
-                text: clientInfo.isLastServiceLate
-                    ? '+${clientInfo.daysSinceLastService} dias'
-                    : 'Recente',
-                icon:
-                    clientInfo.isLastServiceLate ? Icons.schedule : Icons.check,
-                color: clientInfo.isLastServiceLate
-                    ? KaziColors.red
-                    : KaziColors.green,
-              ),
-            ],
-          ),
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Último Serviço', style: KaziTextStyles.md),
+                        KaziSpacings.verticalXs,
+                        Text(
+                          clientInfo.lastServiceName,
+                          style: KaziTextStyles.md
+                              .copyWith(fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          clientInfo.lastServiceDateFormatted,
+                          style: KaziTextStyles.md,
+                        ),
+                      ],
+                    ),
+                    BadgeLabel(
+                      text: clientInfo.isLastServiceLate
+                          ? '+${clientInfo.daysSinceLastService} dias'
+                          : 'Recente',
+                      icon: clientInfo.isLastServiceLate
+                          ? Icons.schedule
+                          : Icons.check,
+                      color: clientInfo.isLastServiceLate
+                          ? KaziColors.red
+                          : KaziColors.green,
+                    ),
+                  ],
+                ),
         ),
         KaziSpacings.verticalSm,
-        Text('Serviços Mais Realizados', style: KaziTextStyles.md),
-        KaziSpacings.verticalSm,
-        MostUsedServices(items: clientInfo.mostUsedServices),
+        if (clientInfo.serviceHistory.isNotEmpty) ...[
+          Text('Serviços Mais Realizados', style: KaziTextStyles.md),
+          KaziSpacings.verticalSm,
+          MostUsedServices(items: clientInfo.mostUsedServices),
+        ],
       ],
     );
   }
