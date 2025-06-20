@@ -5,10 +5,9 @@ homepage:
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
-  flutter: ">=1.17.0"
+  flutter: ">=3.32.4"
 
 dependencies:
-  bloc: ^8.1.4
   dropdown_search: ^5.0.6
   equatable: ^2.0.5
   flutter:

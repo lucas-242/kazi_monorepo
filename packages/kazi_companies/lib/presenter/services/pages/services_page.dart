@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
 import 'package:kazi_companies/presenter/services/components/calendar_event_detail.dart';
-import 'package:kazi_companies/presenter/services/pages/service_form_page.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 class ServicesPage extends StatefulWidget {
@@ -27,7 +26,11 @@ class _ServicesPageState extends State<ServicesPage> {
               ),
               KaziCircularButton(
                 child: const Icon(Icons.add),
-                onTap: () => context.openDialog(child: const ServiceFormPage()),
+                onTap: () => context.openDialog(
+                  child: const SizedBox(
+                    height: 500,
+                  ),
+                ),
               ),
             ],
           ),
