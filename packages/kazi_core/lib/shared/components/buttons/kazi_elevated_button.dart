@@ -12,7 +12,8 @@ class KaziElevatedButton extends StatelessWidget {
     this.width,
     this.height,
     this.labelStyle,
-  });
+    bool isOutlined = false,
+  }) : _isOutlined = isOutlined;
 
   const KaziElevatedButton.label({
     Key? key,
@@ -56,6 +57,25 @@ class KaziElevatedButton extends StatelessWidget {
           height: height,
         );
 
+  const KaziElevatedButton.outlined({
+    Key? key,
+    VoidCallback? onTap,
+    required String label,
+    Color? foregroundColor,
+    TextStyle? labelStyle,
+    double? width,
+    double? height,
+  }) : this._(
+          key: key,
+          onTap: onTap,
+          label: label,
+          foregroundColor: foregroundColor,
+          labelStyle: labelStyle,
+          width: width,
+          height: height,
+          isOutlined: true,
+        );
+
   final VoidCallback? onTap;
   final String? label;
   final TextStyle? labelStyle;
@@ -64,9 +84,30 @@ class KaziElevatedButton extends StatelessWidget {
   final Color? foregroundColor;
   final double? width;
   final double? height;
+  final bool _isOutlined;
 
   @override
   Widget build(BuildContext context) {
+    if (_isOutlined) {
+      final buttonStyle = OutlinedButton.styleFrom(
+        foregroundColor: foregroundColor ?? KaziColors.grey,
+        elevation: 0,
+        side: BorderSide(color: foregroundColor ?? KaziColors.stroke),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(KaziInsets.xs),
+        ),
+      );
+      return OutlinedButton(
+        key: key,
+        onPressed: onTap,
+        style: buttonStyle,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: KaziInsets.xs),
+          child: Text(label!, style: labelStyle ?? KaziTextStyles.titleMd),
+        ),
+      );
+    }
+
     final buttonStyle = ElevatedButton.styleFrom(
       backgroundColor: backgroundColor ?? KaziColors.primary,
       foregroundColor: foregroundColor ?? KaziColors.darkGrey,
