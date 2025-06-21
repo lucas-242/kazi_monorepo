@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'api_users_repository.dart';
+part of 'kazi_providers.dart';
 
 // **************************************************************************
 // RiverpodGenerator

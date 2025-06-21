@@ -1,10 +1,6 @@
 import 'package:kazi_core/kazi_core.dart';
 import 'package:kazi_core/modules/users/data/mocks/client_info_mock.dart';
 import 'package:kazi_core/modules/users/data/mocks/user_mock.dart';
-import 'package:riverpod/riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'api_users_repository.g.dart';
 
 final class ApiUsersRepository implements UsersRepository {
   @override
@@ -98,6 +94,3 @@ final class ApiUsersRepository implements UsersRepository {
     }
   }
 }
-
-@riverpod
-UsersRepository usersRepository(Ref ref) => ApiUsersRepository();

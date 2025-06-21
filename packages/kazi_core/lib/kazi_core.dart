@@ -1,5 +1,6 @@
 library kazi_core;
 
+export 'kazi_providers.dart';
 //Auth Module
 export 'modules/auth/application/use_cases/sign_up_use_case.dart';
 export 'modules/auth/domain/repositories/auth_repository.dart';

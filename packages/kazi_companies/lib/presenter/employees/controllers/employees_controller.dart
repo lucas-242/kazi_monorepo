@@ -1,8 +1,4 @@
-import 'package:kazi_core/modules/users/data/api_users_repository.dart';
-import 'package:kazi_core/modules/users/domain/models/get_users_params.dart';
-import 'package:kazi_core/modules/users/domain/repositories/users_repository.dart';
-import 'package:kazi_core/shared/entities/user.dart';
-import 'package:kazi_core/shared/enums/user_type.dart';
+import 'package:kazi_core/kazi_core.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'employees_controller.g.dart';

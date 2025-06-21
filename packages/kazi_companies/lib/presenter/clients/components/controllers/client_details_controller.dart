@@ -1,5 +1,4 @@
 import 'package:kazi_core/kazi_core.dart';
-import 'package:kazi_core/modules/users/data/api_users_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'client_details_controller.g.dart';
