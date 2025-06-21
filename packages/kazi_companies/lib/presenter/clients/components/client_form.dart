@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
+import 'package:kazi_companies/presenter/clients/components/favorite_services_chips.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 class ClientForm extends StatelessWidget {
@@ -17,7 +18,7 @@ class ClientForm extends StatelessWidget {
     required this.cityEC,
     required this.cepEC,
     required this.favoriteServices,
-    required this.onSelectServiceType,
+    required this.onFavoriteServicesChanged,
   });
 
   final List<ServiceType> services;
@@ -32,7 +33,7 @@ class ClientForm extends StatelessWidget {
   final TextEditingController cityEC;
   final TextEditingController cepEC;
   final List<String> favoriteServices;
-  final Function(bool, ServiceType) onSelectServiceType;
+  final ValueChanged<List<String>> onFavoriteServicesChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -205,19 +206,10 @@ class ClientForm extends StatelessWidget {
                       ],
                     ),
                     KaziSpacings.verticalLg,
-                    Wrap(
-                      spacing: KaziInsets.md,
-                      runSpacing: KaziInsets.md,
-                      children: services
-                          .map(
-                            (service) => ChoiceChip(
-                              label: Text(service.name),
-                              selected: favoriteServices.contains(service.name),
-                              onSelected: (selected) =>
-                                  onSelectServiceType(selected, service),
-                            ),
-                          )
-                          .toList(),
+                    FavoriteServicesChips(
+                      services: services,
+                      initialFavoriteServices: favoriteServices,
+                      onSelectionChanged: onFavoriteServicesChanged,
                     ),
                     KaziSpacings.verticalXxLg,
                     Row(

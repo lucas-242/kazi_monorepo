@@ -22,7 +22,7 @@ class _ClientFormPageState extends ConsumerState<ClientFormPage> {
   final _addressEC = TextEditingController();
   final _cityEC = TextEditingController();
   final _cepEC = TextEditingController();
-  final _favoriteServices = <String>[];
+  List<String> _favoriteServices = [];
 
   @override
   void dispose() {
@@ -56,23 +56,14 @@ class _ClientFormPageState extends ConsumerState<ClientFormPage> {
           cityEC: _cityEC,
           cepEC: _cepEC,
           favoriteServices: _favoriteServices,
-          onSelectServiceType: _onSelectServiceType,
+          onFavoriteServicesChanged: (selection) {
+            _favoriteServices = selection;
+          },
         ),
         error: (error, stackTrace) => KaziError(message: error.toString()),
         loading: () => const KaziLoading(),
       ),
     );
-  }
-
-  void _onSelectServiceType(bool selected, ServiceType service) {
-    //TODO move setState to the client form chips
-    setState(() {
-      if (selected) {
-        _favoriteServices.add(service.name);
-      } else {
-        _favoriteServices.remove(service.name);
-      }
-    });
   }
 
   Future<void> _onSubmit() async {
