@@ -6,11 +6,11 @@ part 'client_form_controller.g.dart';
 @riverpod
 class ClientFormController extends _$ClientFormController {
   @override
-  FutureOr<void> build() {
-    // nothing to do
+  Future<List<ServiceType>> build() {
+    return ref.read(serviceTypeRepositoyProvider).get();
   }
 
-  Future<void> submit({
+  Future<String?> submit({
     required String name,
     required String email,
     required String phone,
@@ -19,8 +19,6 @@ class ClientFormController extends _$ClientFormController {
     String? city,
     String? cep,
   }) async {
-    state = const AsyncLoading();
-
     final params = CreateUserParams(
       name: name,
       email: email,
@@ -31,7 +29,11 @@ class ClientFormController extends _$ClientFormController {
       role: null,
     );
 
-    state = await AsyncValue.guard(
-        () => ref.read(usersRepositoryProvider).create(params));
+    try {
+      await ref.read(usersRepositoryProvider).create(params);
+      return null;
+    } catch (error) {
+      return error.toString();
+    }
   }
 }
