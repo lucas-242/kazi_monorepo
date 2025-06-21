@@ -104,12 +104,15 @@ abstract class AppNavigator {
   static Future<T?> openDialog<T extends Object>(
     BuildContext context, {
     Color? barrierColor,
+    bool barrierDismissible = false,
     required Widget child,
   }) {
     Log.navigation('Showing dialog');
 
     return showDialog(
       context: context,
+      barrierColor: barrierColor,
+      barrierDismissible: barrierDismissible,
       builder: (_) => child,
     );
   }
@@ -122,7 +125,7 @@ abstract class AppNavigator {
     _router.pop(result);
   }
 
-  static void showSnackBar(
+  static void showSnackbar(
     BuildContext context,
     String message, {
     int duration = 4,

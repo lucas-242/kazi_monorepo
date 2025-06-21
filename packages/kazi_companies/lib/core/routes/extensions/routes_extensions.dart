@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
+import 'package:kazi_core/kazi_core.dart';
 
 extension RoutesExtensions on BuildContext {
   String get path => AppNavigator.currentRoute;
@@ -34,16 +35,21 @@ extension RoutesExtensions on BuildContext {
   void closeDialog<T extends Object>([T? result]) =>
       AppNavigator.closeDialog(this, result);
 
-  void showSnackBar(
+  void showSnackbar(
     String message, {
     int seconds = 4,
     bool rootNavigator = false,
   }) =>
-      AppNavigator.showSnackBar(
+      AppNavigator.showSnackbar(
         this,
         message,
         duration: seconds,
         rootNavigator: rootNavigator,
+      );
+
+  void showLoading() => AppNavigator.openDialog(
+        this,
+        child: KaziLoading(color: KaziColors.grey.withAlpha(85)),
       );
 
   Future<bool?> showLeaveBottomSheet() =>
