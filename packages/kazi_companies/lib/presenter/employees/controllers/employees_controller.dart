@@ -5,7 +5,7 @@ part 'employees_controller.g.dart';
 
 @riverpod
 class EmployeesController extends _$EmployeesController {
-  UsersRepository get repository => ref.read(usersRepositoryProvider);
+  UserRepository get repository => ref.read(usersRepositoryProvider);
 
   @override
   FutureOr<EmployeesInitialState> build() async {

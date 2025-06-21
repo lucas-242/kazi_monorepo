@@ -1,6 +1,6 @@
 import 'package:kazi_core/kazi_core.dart';
 
-abstract interface class UsersRepository {
+abstract interface class UserRepository {
   Future<void> create(CreateUserParams params);
 
   Future<void> delete(int userId);

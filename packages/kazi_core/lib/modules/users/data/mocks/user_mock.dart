@@ -1,4 +1,4 @@
-import 'package:kazi_core/modules/users/data/mocks/service_type_mock.dart';
+import 'package:kazi_core/modules/services/data/mocks/service_type_mock.dart';
 import 'package:kazi_core/shared/entities/address.dart';
 import 'package:kazi_core/shared/entities/user.dart';
 import 'package:kazi_core/shared/enums/user_type.dart';

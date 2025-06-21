@@ -1,8 +1,9 @@
 import 'package:kazi_core/kazi_core.dart';
 import 'package:kazi_core/modules/users/data/mocks/client_info_mock.dart';
 import 'package:kazi_core/modules/users/data/mocks/user_mock.dart';
+import 'package:kazi_core/modules/users/domain/repositories/user_repository.dart';
 
-final class ApiUsersRepository implements UsersRepository {
+final class ApiUserRepository implements UserRepository {
   @override
   Future<void> create(CreateUserParams params) async {
     try {

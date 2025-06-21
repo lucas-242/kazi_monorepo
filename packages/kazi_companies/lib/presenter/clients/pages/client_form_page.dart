@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kazi_companies/presenter/clients/controllers/client_form_controller.dart';
 import 'package:kazi_core/kazi_core.dart';
-import 'package:kazi_core/modules/users/data/mocks/service_type_mock.dart';
+import 'package:kazi_core/modules/services/data/mocks/service_type_mock.dart';
 
 class ClientFormPage extends ConsumerStatefulWidget {
   const ClientFormPage({super.key});
