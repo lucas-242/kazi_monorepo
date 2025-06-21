@@ -13,40 +13,41 @@ class ClientDetailsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(clientDetailsControllerProvider);
+    final provider =
+        ref.watch(clientDetailsControllerProvider(clientId, client));
 
-    Future.microtask(() {
-      ref.read(clientDetailsControllerProvider.notifier).init(clientId, client);
-    });
-
-    return KaziSafeArea(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top: KaziInsets.xxLg),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              PersonalInfoCard(user: state.clientInfo.user),
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(KaziInsets.xLg),
-                  child: Column(
-                    spacing: KaziInsets.md,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Serviços Mais Realizados',
-                        style: KaziTextStyles.headlineSm,
-                      ),
-                      MostUsedServices(
-                        items: state.clientInfo.mostUsedServices,
-                      ),
-                    ],
+    return provider.when(
+      loading: () => const KaziLoading(),
+      error: (error, stackTrace) => KaziError(message: error.toString()),
+      data: (state) => KaziSafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: KaziInsets.xxLg),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                PersonalInfoCard(user: state.user),
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(KaziInsets.xLg),
+                    child: Column(
+                      spacing: KaziInsets.md,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Serviços Mais Realizados',
+                          style: KaziTextStyles.headlineSm,
+                        ),
+                        MostUsedServices(
+                          items: state.mostUsedServices,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              ServicesHistory(clientInfo: state.clientInfo),
-            ],
+                ServicesHistory(clientInfo: state),
+              ],
+            ),
           ),
         ),
       ),
