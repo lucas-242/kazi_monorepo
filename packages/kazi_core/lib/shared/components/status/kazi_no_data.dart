@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kazi_core/shared/components/scroll/kazi_single_scroll_view.dart';
 import 'package:kazi_core/shared/themes/themes.dart';
 
 class KaziNoData extends StatelessWidget {
@@ -13,21 +12,24 @@ class KaziNoData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return KaziSingleScrollView(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        if (navbar != null) navbar!,
-        if (navbar != null) SizedBox(height: context.height * 0.12),
-        Image.asset(KaziImageAssets.noData, package: 'kazi_core'),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: KaziInsets.lg),
-          child: Text(
-            message,
-            style: KaziTextStyles.headlineSm.copyWith(color: KaziColors.grey),
-            textAlign: TextAlign.center,
+    return SingleChildScrollView(
+      physics: const AlwaysScrollableScrollPhysics(),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (navbar != null) navbar!,
+          if (navbar != null) SizedBox(height: context.height * 0.12),
+          Image.asset(KaziImageAssets.noData, package: 'kazi_core'),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: KaziInsets.lg),
+            child: Text(
+              message,
+              style: KaziTextStyles.headlineSm.copyWith(color: KaziColors.grey),
+              textAlign: TextAlign.center,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

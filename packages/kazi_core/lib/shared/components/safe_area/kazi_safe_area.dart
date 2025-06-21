@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kazi_core/shared/components/safe_area/kazi_padding_wrap.dart';
-import 'package:kazi_core/shared/components/scroll/kazi_scroll_behavior.dart';
+import 'package:kazi_core/shared/components/safe_area/kazi_scroll_behavior.dart';
 
 class KaziSafeArea extends StatelessWidget {
   const KaziSafeArea({
