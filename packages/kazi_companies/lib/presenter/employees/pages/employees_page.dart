@@ -13,9 +13,7 @@ class EmployeesPage extends ConsumerWidget {
 
     return provider.when(
       loading: () => const KaziLoading(),
-      error: (error, stack) => Center(
-        child: Text('Erro: $error'),
-      ),
+      error: (error, stackTrace) => KaziError(message: error.toString()),
       data: (state) => switch (state) {
         EmployeesInitialState() => KaziSafeArea(
             child: Column(

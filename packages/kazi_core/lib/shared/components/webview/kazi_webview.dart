@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kazi_core/shared/components/buttons/kazi_back_and_pill.dart';
-import 'package:kazi_core/shared/components/loading/kazi_loading.dart';
+import 'package:kazi_core/shared/components/status/kazi_loading.dart';
 import 'package:kazi_core/shared/themes/themes.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 

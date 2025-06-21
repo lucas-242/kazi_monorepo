@@ -13,9 +13,7 @@ class ClientsPage extends ConsumerWidget {
 
     return provider.when(
       loading: () => const KaziLoading(),
-      error: (error, stackTrace) => const Center(
-        child: Text('Erro ao buscar clientes'),
-      ),
+      error: (error, stackTrace) => KaziError(message: error.toString()),
       data: (clients) => KaziSafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -31,13 +31,14 @@ export 'shared/components/form/kazi_date_range_picker.dart';
 export 'shared/components/form/kazi_dropdown.dart';
 export 'shared/components/form/kazi_text_form_field.dart';
 export 'shared/components/kazi_page_title.dart';
-export 'shared/components/loading/kazi_loading.dart';
-export 'shared/components/no_data/kazi_no_data.dart';
 export 'shared/components/safe_area/kazi_padding_wrap.dart';
 export 'shared/components/safe_area/kazi_safe_area.dart';
 export 'shared/components/scroll/kazi_scroll_behavior.dart';
 export 'shared/components/scroll/kazi_single_scroll_view.dart';
 export 'shared/components/snack_bar/kazi_snackbar.dart';
+export 'shared/components/status/kazi_error.dart';
+export 'shared/components/status/kazi_loading.dart';
+export 'shared/components/status/kazi_no_data.dart';
 export 'shared/components/svg/kazi_svg.dart';
 export 'shared/components/webview/kazi_webview.dart';
 //Shared - Entities
