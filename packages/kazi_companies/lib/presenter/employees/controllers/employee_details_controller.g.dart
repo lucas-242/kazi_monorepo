@@ -7,7 +7,7 @@ part of 'employee_details_controller.dart';
 // **************************************************************************
 
 String _$employeeDetailsControllerHash() =>
-    r'3ed249406b26d1303f7df1b1311c3ec3e357dd4c';
+    r'8894a0f08a021173fdc1fd052d773daeb8eb3172';
 
 /// Copied from Dart SDK
 class _SystemHash {
