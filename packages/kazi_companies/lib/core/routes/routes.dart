@@ -10,6 +10,7 @@ abstract class Routes {
 
   // Clients
   static const clients = '/clients';
+  static const newClient = '/clients/new';
 
   // Services
   static const services = '/services';

@@ -5,6 +5,7 @@ import 'package:kazi_companies/app_controller.dart';
 import 'package:kazi_companies/app_shell.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
 import 'package:kazi_companies/presenter/clients/pages/client_details_page.dart';
+import 'package:kazi_companies/presenter/clients/pages/client_form_page.dart';
 import 'package:kazi_companies/presenter/clients/pages/clients_page.dart';
 import 'package:kazi_companies/presenter/employees/pages/employee_details_page.dart';
 import 'package:kazi_companies/presenter/employees/pages/employees_page.dart';
@@ -79,6 +80,11 @@ abstract class AppRouter {
         path: Routes.clients,
         pageBuilder: (context, state) =>
             _customTransition(state, const ClientsPage()),
+      ),
+      GoRoute(
+        path: Routes.newClient,
+        pageBuilder: (context, state) =>
+            _customTransition(state, const ClientFormPage()),
       ),
       GoRoute(
         path: '${Routes.clients}/:clientId',

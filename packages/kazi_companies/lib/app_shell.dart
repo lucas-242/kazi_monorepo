@@ -84,7 +84,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                 children: [
                   if (currentPage == AppPages.clients)
                     KaziElevatedButton.icon(
-                      onTap: () {},
+                      onTap: () => context.navigate(Routes.newClient),
                       icon: const Icon(Icons.add),
                       label: KaziLocalizations.current.newClient,
                     ),

@@ -4,7 +4,7 @@ import 'package:kazi_core/shared/themes/themes.dart';
 class KaziElevatedButton extends StatelessWidget {
   const KaziElevatedButton._({
     super.key,
-    required this.onTap,
+    this.onTap,
     this.label,
     this.icon,
     this.backgroundColor,
@@ -16,7 +16,7 @@ class KaziElevatedButton extends StatelessWidget {
 
   const KaziElevatedButton.label({
     Key? key,
-    required VoidCallback onTap,
+    VoidCallback? onTap,
     required String label,
     Color? backgroundColor,
     Color? foregroundColor,
@@ -36,7 +36,7 @@ class KaziElevatedButton extends StatelessWidget {
 
   const KaziElevatedButton.icon({
     Key? key,
-    required VoidCallback onTap,
+    VoidCallback? onTap,
     String? label,
     required Widget icon,
     Color? backgroundColor,
@@ -56,7 +56,7 @@ class KaziElevatedButton extends StatelessWidget {
           height: height,
         );
 
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final String? label;
   final TextStyle? labelStyle;
   final Widget? icon;
