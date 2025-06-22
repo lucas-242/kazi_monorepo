@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:kazi_core/kazi_core.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -18,6 +19,8 @@ class ClientFormController extends _$ClientFormController {
     String? address,
     String? city,
     String? cep,
+    Uint8List? image,
+    List<ServiceType>? favoriteServices,
   }) async {
     final params = CreateUserParams(
       name: name,

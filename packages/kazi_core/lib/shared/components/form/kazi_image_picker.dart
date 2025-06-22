@@ -10,7 +10,7 @@ class KaziImagePicker extends StatefulWidget {
     super.key,
     required this.onChange,
   });
-  final Function(Uint8List) onChange;
+  final ValueChanged<Uint8List> onChange;
 
   @override
   State<KaziImagePicker> createState() => _KaziImagePickerState();

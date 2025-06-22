@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kazi_companies/core/routes/routes.dart';
@@ -22,7 +24,8 @@ class _ClientFormPageState extends ConsumerState<ClientFormPage> {
   final _addressEC = TextEditingController();
   final _cityEC = TextEditingController();
   final _cepEC = TextEditingController();
-  List<String> _favoriteServices = [];
+  List<ServiceType> _favoriteServices = [];
+  Uint8List? _image;
 
   @override
   void dispose() {
@@ -59,6 +62,9 @@ class _ClientFormPageState extends ConsumerState<ClientFormPage> {
           onFavoriteServicesChanged: (selection) {
             _favoriteServices = selection;
           },
+          onImageChanged: (image) {
+            _image = image;
+          },
         ),
         error: (error, stackTrace) => KaziError(message: error.toString()),
         loading: () => const KaziLoading(),
@@ -73,6 +79,7 @@ class _ClientFormPageState extends ConsumerState<ClientFormPage> {
 
     final message =
         await ref.read(clientFormControllerProvider.notifier).submit(
+              image: _image,
               name: _nameEC.text,
               email: _emailEC.text,
               phone: _phoneEC.text,
@@ -80,6 +87,7 @@ class _ClientFormPageState extends ConsumerState<ClientFormPage> {
               address: _addressEC.text,
               city: _cityEC.text,
               cep: _cepEC.text,
+              favoriteServices: _favoriteServices,
             );
 
     if (!mounted) return;
