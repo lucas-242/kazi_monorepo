@@ -16,7 +16,6 @@ class App extends StatelessWidget {
         title: 'Kazi Companies',
         debugShowCheckedModeBanner: false,
         theme: KaziThemeSettings.light(),
-        darkTheme: KaziThemeSettings.dark(),
         themeMode: ThemeMode.light,
         localizationsDelegates: const [
           KaziLocalizations.delegate,

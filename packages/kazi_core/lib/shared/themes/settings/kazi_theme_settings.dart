@@ -38,31 +38,7 @@ abstract class KaziThemeSettings {
       drawerTheme: _drawerTheme(colors),
       inputDecorationTheme: _inputDecorationTheme(colors),
       dataTableTheme: _dataTableTheme(),
-      textTheme: KaziTextStyles.textTheme,
-      scaffoldBackgroundColor: colors.surface,
-    );
-  }
-
-  static ThemeData dark() {
-    final colors = _getColorScheme(Brightness.dark);
-
-    return ThemeData.dark().copyWith(
-      pageTransitionsTheme: pageTransitionsTheme,
-      colorScheme: colors,
-      appBarTheme: _appBarTheme(colors),
-      cardTheme: _cardTheme(),
-      listTileTheme: _listTileTheme(colors),
-      bottomAppBarTheme: _bottomAppBarTheme(colors),
-      bottomNavigationBarTheme: _bottomNavigationBarTheme(colors),
-      bottomSheetTheme: _bottomSheetTheme(colors),
-      floatingActionButtonTheme: _floatingActionButtonTheme(colors),
-      outlinedButtonTheme: _outlinedButtonTheme(colors),
-      dividerTheme: _dividerTheme(colors),
-      navigationRailTheme: _navigationRailTheme(colors),
-      tabBarTheme: _tabBarTheme(colors),
-      drawerTheme: _drawerTheme(colors),
-      inputDecorationTheme: _inputDecorationTheme(colors),
-      dataTableTheme: _dataTableTheme(),
+      chipTheme: _choiceChipTheme(),
       textTheme: KaziTextStyles.textTheme,
       scaffoldBackgroundColor: colors.surface,
     );
@@ -220,5 +196,16 @@ abstract class KaziThemeSettings {
         columnSpacing: KaziInsets.md,
         headingTextStyle: KaziTextStyles.titleSm,
         dataTextStyle: KaziTextStyles.md,
+      );
+
+  static ChipThemeData _choiceChipTheme() => ChipThemeData(
+        showCheckmark: false,
+        padding: const EdgeInsets.all(KaziInsets.sm),
+        backgroundColor: KaziColors.white,
+        surfaceTintColor: KaziColors.white,
+        selectedColor: KaziColors.primary.withAlpha(130),
+        labelStyle: KaziTextStyles.md,
+        secondaryLabelStyle: KaziTextStyles.titleSm, //selected
+        side: const BorderSide(color: KaziColors.stroke),
       );
 }
