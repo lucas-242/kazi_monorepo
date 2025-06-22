@@ -69,11 +69,7 @@ class _ClientFormPageState extends ConsumerState<ClientFormPage> {
   Future<void> _onSubmit() async {
     if (!_formKey.currentState!.validate()) return;
 
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => const KaziLoading(),
-    );
+    context.showLoading();
 
     final message =
         await ref.read(clientFormControllerProvider.notifier).submit(

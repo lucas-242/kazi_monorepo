@@ -54,36 +54,11 @@ class ClientForm extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     KaziSpacings.verticalSm,
-                    GestureDetector(
-                      onTap: () {
-                        //TODO: Add action
-                      },
-                      child: Center(
-                        child: CircleAvatar(
-                          radius: 60,
-                          backgroundColor: KaziColors.lightGrey,
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              const Icon(
-                                Icons.camera_alt,
-                                size: 40,
-                                color: KaziColors.grey,
-                              ),
-                              Positioned(
-                                bottom: 0,
-                                right: 0,
-                                child: KaziCircularButton(
-                                  onTap: () {},
-                                  child: const Icon(
-                                    Icons.add,
-                                    color: KaziColors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                    Center(
+                      child: KaziImagePicker(
+                        onChange: (bytes) {
+                          //TODO: Add action
+                        },
                       ),
                     ),
                     KaziSpacings.verticalXxLg,

@@ -27,6 +27,7 @@ export 'shared/components/dialog/kazi_dialog.dart';
 export 'shared/components/form/kazi_date_picker.dart';
 export 'shared/components/form/kazi_date_range_picker.dart';
 export 'shared/components/form/kazi_dropdown.dart';
+export 'shared/components/form/kazi_image_picker.dart';
 export 'shared/components/form/kazi_text_form_field.dart';
 export 'shared/components/kazi_page_title.dart';
 export 'shared/components/safe_area/kazi_padding_wrap.dart';
