@@ -21,9 +21,13 @@ class _ClientFormPageState extends ConsumerState<ClientFormPage> {
   final _phoneEC = TextEditingController();
   final _birthDateEC = TextEditingController();
   final _identifierEC = TextEditingController();
-  final _addressEC = TextEditingController();
-  final _cityEC = TextEditingController();
   final _cepEC = TextEditingController();
+  final _streetEC = TextEditingController();
+  final _numberEC = TextEditingController();
+  final _neighborhoodEC = TextEditingController();
+  final _cityEC = TextEditingController();
+  final _stateEC = TextEditingController();
+  final _complementEC = TextEditingController();
   List<ServiceType> _favoriteServices = [];
   Uint8List? _image;
 
@@ -35,9 +39,13 @@ class _ClientFormPageState extends ConsumerState<ClientFormPage> {
     _phoneEC.dispose();
     _birthDateEC.dispose();
     _identifierEC.dispose();
-    _addressEC.dispose();
-    _cityEC.dispose();
     _cepEC.dispose();
+    _streetEC.dispose();
+    _numberEC.dispose();
+    _neighborhoodEC.dispose();
+    _cityEC.dispose();
+    _stateEC.dispose();
+    _complementEC.dispose();
   }
 
   @override
@@ -55,9 +63,13 @@ class _ClientFormPageState extends ConsumerState<ClientFormPage> {
           phoneEC: _phoneEC,
           birthDateEC: _birthDateEC,
           identifierEC: _identifierEC,
-          addressEC: _addressEC,
-          cityEC: _cityEC,
           cepEC: _cepEC,
+          streetEC: _streetEC,
+          numberEC: _numberEC,
+          neighborhoodEC: _neighborhoodEC,
+          cityEC: _cityEC,
+          stateEC: _stateEC,
+          complementEC: _complementEC,
           favoriteServices: _favoriteServices,
           onFavoriteServicesChanged: (selection) {
             _favoriteServices = selection;
@@ -77,18 +89,28 @@ class _ClientFormPageState extends ConsumerState<ClientFormPage> {
 
     context.showLoading();
 
-    final message =
-        await ref.read(clientFormControllerProvider.notifier).submit(
-              image: _image,
-              name: _nameEC.text,
-              email: _emailEC.text,
-              phone: _phoneEC.text,
-              identifier: _identifierEC.text,
-              address: _addressEC.text,
-              city: _cityEC.text,
-              cep: _cepEC.text,
-              favoriteServices: _favoriteServices,
-            );
+    final controller = ref.read(clientFormControllerProvider.notifier);
+
+    final address = controller.getAddress(
+      cep: _cepEC.text,
+      street: _streetEC.text,
+      number: _numberEC.text,
+      neighborhood: _neighborhoodEC.text,
+      city: _cityEC.text,
+      state: _stateEC.text,
+      complement: _complementEC.text,
+    );
+
+    final message = await controller.submit(
+      image: _image,
+      name: _nameEC.text,
+      email: _emailEC.text,
+      phone: _phoneEC.text,
+      birthDate: _birthDateEC.text,
+      identifier: _identifierEC.text,
+      address: address,
+      favoriteServices: _favoriteServices,
+    );
 
     if (!mounted) return;
 

@@ -1,7 +1,7 @@
 import 'package:kazi_core/kazi_core.dart';
 import 'package:kazi_core/modules/users/data/mocks/client_info_mock.dart';
 import 'package:kazi_core/modules/users/data/mocks/user_mock.dart';
-import 'package:kazi_core/modules/users/domain/repositories/user_repository.dart';
+import 'package:kazi_core/modules/users/domain/models/create_client_params.dart';
 
 final class ApiUserRepository implements UserRepository {
   @override
@@ -11,6 +11,18 @@ final class ApiUserRepository implements UserRepository {
     } catch (error, trace) {
       throw ExternalError(
         'Error to create user with identifier: ${params.identifier}',
+        trace: trace,
+      );
+    }
+  }
+
+  @override
+  Future<void> createClient(CreateClientParams params) async {
+    try {
+      await Future.delayed(const Duration(seconds: 4));
+    } catch (error, trace) {
+      throw ExternalError(
+        'Error to create client with identifier: ${params.identifier}',
         trace: trace,
       );
     }

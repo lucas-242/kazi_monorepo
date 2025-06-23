@@ -16,9 +16,13 @@ class ClientForm extends StatelessWidget {
     required this.phoneEC,
     required this.birthDateEC,
     required this.identifierEC,
-    required this.addressEC,
-    required this.cityEC,
     required this.cepEC,
+    required this.streetEC,
+    required this.numberEC,
+    required this.neighborhoodEC,
+    required this.cityEC,
+    required this.stateEC,
+    required this.complementEC,
     required this.favoriteServices,
     required this.onFavoriteServicesChanged,
     required this.onImageChanged,
@@ -32,9 +36,13 @@ class ClientForm extends StatelessWidget {
   final TextEditingController phoneEC;
   final TextEditingController birthDateEC;
   final TextEditingController identifierEC;
-  final TextEditingController addressEC;
-  final TextEditingController cityEC;
   final TextEditingController cepEC;
+  final TextEditingController streetEC;
+  final TextEditingController numberEC;
+  final TextEditingController neighborhoodEC;
+  final TextEditingController cityEC;
+  final TextEditingController stateEC;
+  final TextEditingController complementEC;
   final List<ServiceType> favoriteServices;
   final ValueChanged<List<ServiceType>> onFavoriteServicesChanged;
   final ValueChanged<Uint8List> onImageChanged;
@@ -146,9 +154,33 @@ class ClientForm extends StatelessWidget {
                     ),
                     KaziSpacings.verticalLg,
                     KaziTextFormField(
-                      controller: addressEC,
-                      labelText: 'Endereço Completo',
-                      hintText: 'Rua, número, bairro',
+                      controller: cepEC,
+                      labelText: 'CEP',
+                      keyboardType: TextInputType.number,
+                    ),
+                    KaziSpacings.verticalLg,
+                    KaziTextFormField(
+                      controller: streetEC,
+                      labelText: 'Rua',
+                    ),
+                    KaziSpacings.verticalLg,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: KaziTextFormField(
+                            controller: numberEC,
+                            labelText: 'Número',
+                            keyboardType: TextInputType.number,
+                          ),
+                        ),
+                        KaziSpacings.horizontalLg,
+                        Expanded(
+                          child: KaziTextFormField(
+                            controller: neighborhoodEC,
+                            labelText: 'Bairro',
+                          ),
+                        ),
+                      ],
                     ),
                     KaziSpacings.verticalLg,
                     Row(
@@ -162,12 +194,16 @@ class ClientForm extends StatelessWidget {
                         KaziSpacings.horizontalLg,
                         Expanded(
                           child: KaziTextFormField(
-                            controller: cepEC,
-                            labelText: 'CEP',
-                            keyboardType: TextInputType.number,
+                            controller: stateEC,
+                            labelText: 'Estado',
                           ),
                         ),
                       ],
+                    ),
+                    KaziSpacings.verticalLg,
+                    KaziTextFormField(
+                      controller: complementEC,
+                      labelText: 'Complemento',
                     ),
                     KaziSpacings.verticalXxLg,
                     Row(
