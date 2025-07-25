@@ -13,99 +13,95 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => _onView(context),
-      behavior: HitTestBehavior.translucent,
-      child: Stack(
-        children: [
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(KaziInsets.xLg),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
+    return Card(
+      child: InkWell(
+        hoverColor: KaziColors.background,
+        onTap: () => _onView(context),
+        child: Padding(
+          padding: const EdgeInsets.all(KaziInsets.xLg),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    spacing: KaziInsets.sm,
                     children: [
-                      Row(
-                        spacing: KaziInsets.sm,
+                      CircleAvatar(
+                        radius: 32,
+                        backgroundImage: user.photoUrl != null
+                            ? NetworkImage(user.photoUrl!)
+                            : null,
+                        child: user.photoUrl == null
+                            ? const Icon(Icons.person, size: 32)
+                            : null,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CircleAvatar(
-                            radius: 32,
-                            backgroundImage: user.photoUrl != null
-                                ? NetworkImage(user.photoUrl!)
-                                : null,
-                            child: user.photoUrl == null
-                                ? const Icon(Icons.person, size: 32)
-                                : null,
+                          Text(
+                            user.name,
+                            style: KaziTextStyles.titleMd
+                                .copyWith(fontWeight: FontWeight.bold),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                user.name,
-                                style: KaziTextStyles.titleMd
-                                    .copyWith(fontWeight: FontWeight.bold),
-                              ),
-                              if (user.role != null)
-                                Text(
-                                  user.role!,
-                                  style: KaziTextStyles.titleSm,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              Text(
-                                user.phones.isNotEmpty ? user.phones.first : '',
-                                style: KaziTextStyles.md,
-                              ),
-                              Text(
-                                user.email,
-                                style: KaziTextStyles.md,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              if (user.isBirthdayInMonth) ...[
-                                KaziSpacings.verticalSm,
-                                const BadgeLabel(
-                                  text: 'Aniversário',
-                                  icon: Icons.cake,
-                                  color: KaziColors.orange,
-                                ),
-                              ],
-                            ],
+                          if (user.role != null)
+                            Text(
+                              user.role!,
+                              style: KaziTextStyles.titleSm,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          Text(
+                            user.phones.isNotEmpty ? user.phones.first : '',
+                            style: KaziTextStyles.md,
                           ),
+                          Text(
+                            user.email,
+                            style: KaziTextStyles.md,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          if (user.isBirthdayInMonth) ...[
+                            KaziSpacings.verticalSm,
+                            const BadgeLabel(
+                              text: 'Aniversário',
+                              icon: Icons.cake,
+                              color: KaziColors.orange,
+                            ),
+                          ],
                         ],
                       ),
-                      const Icon(Icons.chevron_right, size: KaziInsets.xxLg),
                     ],
                   ),
-                  KaziSpacings.verticalMd,
-                  if (clientInfo != null)
-                    ClientCardDetails(clientInfo: clientInfo!)
-                  else
-                    EmployeeCardDetails(user: user),
-                  const Spacer(),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: KaziElevatedButton.icon(
-                          onTap: () {},
-                          icon: const Icon(Icons.calendar_month_sharp),
-                          label: 'Agendar',
-                        ),
-                      ),
-                      KaziSpacings.horizontalMd,
-                      MoreOptionsPopup(
-                        onView: () => _onView(context),
-                        onEdit: () => _onEdit(context),
-                        onDelete: () => _onDelete(context),
-                      ),
-                    ],
+                  const Icon(Icons.chevron_right, size: KaziInsets.xxLg),
+                ],
+              ),
+              KaziSpacings.verticalMd,
+              if (clientInfo != null)
+                ClientCardDetails(clientInfo: clientInfo!)
+              else
+                EmployeeCardDetails(user: user),
+              const Spacer(),
+              Row(
+                children: [
+                  Expanded(
+                    child: KaziElevatedButton.icon(
+                      onTap: () {},
+                      icon: const Icon(Icons.calendar_month_sharp),
+                      label: 'Agendar',
+                    ),
+                  ),
+                  KaziSpacings.horizontalMd,
+                  MoreOptionsPopup(
+                    onView: () => _onView(context),
+                    onEdit: () => _onEdit(context),
+                    onDelete: () => _onDelete(context),
                   ),
                 ],
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
