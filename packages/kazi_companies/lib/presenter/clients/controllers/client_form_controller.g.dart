@@ -7,7 +7,7 @@ part of 'client_form_controller.dart';
 // **************************************************************************
 
 String _$clientFormControllerHash() =>
-    r'8f56340228c23590fa69ce1777da4c1019dd3a8e';
+    r'ad762beb6454f51fc1d532160327ca3214246e6d';
 
 /// See also [ClientFormController].
 @ProviderFor(ClientFormController)

@@ -22,7 +22,7 @@ extension RoutesExtensions on BuildContext {
 
   void pop() => AppNavigator.pop();
 
-  void openDialog<T extends Object>({
+  Future<T?> openDialog<T extends Object>({
     Color? barrierColor,
     required Widget child,
   }) =>

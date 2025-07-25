@@ -34,7 +34,11 @@ class EmployeesPage extends ConsumerWidget {
                     itemCount: state.employees.length,
                     itemBuilder: (context, index) {
                       final employee = state.employees[index];
-                      return UserCard(user: employee);
+                      return UserCard(
+                        user: employee,
+                        onEdit: (user) {},
+                        onDelete: (user) {},
+                      );
                     },
                   ),
                 ),

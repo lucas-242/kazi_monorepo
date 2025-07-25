@@ -42,10 +42,12 @@ class PersonalInfoCard extends StatelessWidget {
                           ),
                           if (isClient)
                             Text(
-                                'Cliente desde ${user.admissionDate?.format()}')
+                              'Cliente desde ${user.admissionDate?.format()}',
+                            )
                           else
                             Text(
-                                '${user.role} admitido(a) em ${user.admissionDate?.format()}'),
+                              '${user.role} admitido(a) em ${user.admissionDate?.format()}',
+                            ),
                         ],
                       ),
                       if (user.isBirthdayInMonth)

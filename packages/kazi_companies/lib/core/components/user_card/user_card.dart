@@ -7,9 +7,17 @@ import 'package:kazi_companies/core/routes/routes.dart';
 import 'package:kazi_core/kazi_core.dart';
 
 class UserCard extends StatelessWidget {
-  const UserCard({super.key, required this.user, this.clientInfo});
+  const UserCard({
+    super.key,
+    required this.user,
+    this.clientInfo,
+    required this.onEdit,
+    required this.onDelete,
+  });
   final User user;
   final ClientInfo? clientInfo;
+  final void Function(User) onEdit;
+  final void Function(User) onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +103,7 @@ class UserCard extends StatelessWidget {
                   MoreOptionsPopup(
                     onView: () => _onView(context),
                     onEdit: () => _onEdit(context),
-                    onDelete: () => _onDelete(context),
+                    onDelete: () => onDelete(user),
                   ),
                 ],
               ),
@@ -120,12 +128,6 @@ class UserCard extends StatelessWidget {
   void _onEdit(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Editar')),
-    );
-  }
-
-  void _onDelete(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Deletar')),
     );
   }
 }

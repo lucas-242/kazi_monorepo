@@ -204,6 +204,11 @@ class KaziLocalizations {
     );
   }
 
+  /// `Continue`
+  String get continueAction {
+    return Intl.message('Continue', name: 'continueAction', desc: '', args: []);
+  }
+
   /// `Current Password`
   String get currentPassword {
     return Intl.message(

@@ -69,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "contactEmail": MessageLookupByLibrary.simpleMessage(
       "guimaraeslucas242@gmail.com",
     ),
+    "continueAction": MessageLookupByLibrary.simpleMessage("Continue"),
     "create": MessageLookupByLibrary.simpleMessage("Create"),
     "createAccount": MessageLookupByLibrary.simpleMessage("Create an Account"),
     "currentPassword": MessageLookupByLibrary.simpleMessage("Current Password"),

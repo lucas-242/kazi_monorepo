@@ -10,4 +10,8 @@ class ClientsController extends _$ClientsController {
     final response = await usersRepository(ref).getClientsInfo();
     return response;
   }
+
+  Future<void> delete(User user) async {
+    await usersRepository(ref).delete(user.id);
+  }
 }

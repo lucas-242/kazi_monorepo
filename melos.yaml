@@ -29,3 +29,11 @@ scripts:
   build-runner:
     run: melos exec -- "dart run build_runner watch -d"
     description: Executa build runner watch em todos os pacotes
+
+generate-l10n:
+  run: melos exec -- "dart run intl_utils:generate"
+  description: Gera arquivos de tradução em todos os pacotes
+
+watch-l10n:
+  run: melos exec -- "dart run intl_utils:generate --watch"
+  description: Observa mudanças nos arquivos ARB e gera traduções automaticamente
